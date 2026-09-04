@@ -1,13 +1,404 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rafael Lucchesi — Portfolio</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.Lucchesi — Sobre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-primary:#e32013;
+    --color-secondary:#000000;
+    --color-body-light:#7f7f7f;
+    --color-border:#9f9f9f;
+    --bg-alt:#f6f6f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Jost', 'Namdhinggo', sans-serif;
+    color:var(--color-secondary);
+    background:#fff;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  /* ---------- Navbar ---------- */
+  .navbar{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    padding:42px 64px;
+    background:#fff;
+  }
+  .logo-block{display:flex;flex-direction:column;gap:8px;}
+  .logo-tag{
+    font-size:12px;
+    letter-spacing:2.4px;
+    text-transform:uppercase;
+    color:var(--color-body-light);
+    font-family:'Jost',sans-serif;
+  }
+  .logo-tag .strike{text-decoration:line-through;}
+  .logo-name{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:20px;
+    letter-spacing:1px;
+  }
+  .menu{display:flex;align-items:center;gap:16px;}
+  .tabs{display:flex;align-items:center;gap:4px;}
+  .tabs a{
+    font-family:'Oswald',sans-serif;
+    font-weight:300;
+    font-size:16px;
+    letter-spacing:0.32px;
+    text-transform:lowercase;
+    padding:6px 8.5px;
+    color:var(--color-secondary);
+  }
+  .tabs a.active{
+    font-weight:500;
+    color:var(--color-primary);
+    border-bottom:2px solid var(--color-primary);
+  }
+  .actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:0.7px solid var(--color-border);
+    padding:6px 8.5px;
+    font-family:'Oswald',sans-serif;
+    font-size:16px;
+    letter-spacing:0.32px;
+    text-transform:lowercase;
+  }
+  .arrow{width:18px;height:18px;stroke:currentColor;}
+
+  /* ---------- Main ---------- */
+  .page-main{
+    display:flex;
+    gap:72px;
+    padding:96px 224px;
+  }
+  .col{
+    flex:1 0 0;
+    max-width:850px;
+    min-width:0;
+  }
+
+  /* left column */
+  .eyebrow{
+    font-size:14px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    color:var(--color-body-light);
+    font-family:'Jost',sans-serif;
+    font-weight:600;
+  }
+  .title-hello{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:64px;
+    line-height:1.125;
+    letter-spacing:-2.56px;
+    text-transform:uppercase;
+    margin-top:24px;
+  }
+  .bio{
+    margin-top:48px;
+    font-size:20px;
+    line-height:1.5;
+    text-align:justify;
+    color:var(--color-body-light);
+  }
+  .bio p{margin-bottom:20px;}
+  .bio p:last-child{margin-bottom:0;}
+
+  .collections{
+    margin-top:56px;
+    padding-top:56px;
+  }
+  .collections ul{
+    list-style:disc;
+    padding-left:30px;
+    font-size:20px;
+    line-height:24px;
+    color:var(--color-body-light);
+    text-align:justify;
+  }
+  .collections ul li{margin-bottom:4px;}
+  .section-label{
+    margin-top:32px;
+    font-size:14px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    color:var(--color-body-light);
+    font-weight:600;
+  }
+
+  /* right column */
+  .frame-wrap{
+    background:var(--bg-alt);
+    height:535px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .frame{
+    width:352px;
+    height:429px;
+    border:2px solid #623005;
+    box-shadow:-10px 5px 27px rgba(0,0,0,0.2);
+    overflow:hidden;
+  }
+  .frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:bottom;
+    display:block;
+  }
+  .content-panel{
+    background:var(--bg-alt);
+    padding:56px 42px;
+    display:flex;
+    flex-direction:column;
+    gap:48px;
+  }
+  .content-panel .block{display:flex;flex-direction:column;gap:32px;}
+  .content-panel ul{
+    list-style:disc;
+    padding-left:18px;
+    font-size:12px;
+    line-height:normal;
+    color:var(--color-body-light);
+    text-align:justify;
+  }
+  .content-panel ul li{margin-bottom:4px;}
+  .content-panel .label{
+    font-size:14px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    color:var(--color-body-light);
+    font-weight:600;
+  }
+  .content-panel .label.clipping{
+    font-size:16px;
+    letter-spacing:8px;
+  }
+  .clip-list li{line-height:18px;}
+  .clip-list a{color:#28a6f4;text-decoration:underline;}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    padding:96px 224px;
+    background:#fff;
+  }
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    gap:72px;
+  }
+  .footer-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .social-media{
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  .social-media svg{width:24px;height:24px;color:#000;}
+  .footer-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:32px;
+    width:339px;
+  }
+  .footer-logo-symbol{width:36px;height:43px;}
+  .footer-logo-symbol svg{width:100%;height:100%;}
+  .whatsapp-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:0.7px solid var(--color-border);
+    padding:8px 16px;
+    font-family:'Oswald',sans-serif;
+    font-size:18px;
+    letter-spacing:0.36px;
+    text-transform:lowercase;
+    cursor:pointer;
+  }
+  .whatsapp-btn svg{width:20px;height:20px;}
+  .footer-bottom{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .location{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:var(--color-body-light);
+  }
+  .location .flags{display:flex;}
+  .location .flags span{
+    width:20px;height:16px;
+    display:inline-block;
+    border-radius:2px;
+  }
+  .location .flags span:first-child{background:linear-gradient(180deg,#009b3a 40%,#fedf00 40% 60%,#002776 60%);}
+  .location .flags span:last-child{background:#0e4a25;margin-left:-2px;}
+  .copyright{font-size:12px;color:var(--color-body-light);}
+
+  @media (max-width: 1200px){
+    .navbar,.page-main,.footer{padding-left:32px;padding-right:32px;}
+    .page-main{flex-direction:column;}
+    .col{max-width:100%;}
+  }
+</style>
 </head>
 <body>
-  <main></main>
-  <script src="assets/js/main.js"></script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-block">
+      <span class="logo-tag"><span class="strike">DESIGNER</span> &amp; ARTISTA</span>
+      <span class="logo-name">R.LUCCHESI</span>
+    </div>
+    <nav class="menu">
+      <div class="tabs">
+        <a href="#">home</a>
+        <a href="#">trabalhos</a>
+        <a href="#">exposições</a>
+        <a href="#">devaneios</a>
+        <a href="#" class="active">sobre</a>
+      </div>
+      <a class="actions" href="#" target="_blank">
+        loja
+        <svg class="arrow" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-main">
+
+    <!-- LEFT COLUMN -->
+    <section class="col">
+      <p class="eyebrow">sobre</p>
+      <h1 class="title-hello">Hello, World!</h1>
+
+      <div class="bio">
+        <p>Rafael Lucchesi, nascido em 1987 em Belo Horizonte, Minas Gerais, é um artista plástico autodidata e designer de produto digital.</p>
+        <p>Em 2019, ele decidiu explorar sua criatividade na arte e começou a criar desenhos que combinam elementos do cubismo, hermetismo, quadrinhos e graffiti.</p>
+        <p>Em 2021, ele foi convidado para uma exposição com outros artistas em Helsinque, na Finlândia, no espaço Cable Factory. Além disso, suas obras já foram exibidas no Centro Cultural dos Correios, na capital do Rio de Janeiro e no Espaço Cultural dos Correios, em Niterói.</p>
+        <p>Em 2023-2024, em Belo Horizonte, esteve no Museu MM Gerdau, no Minas Tênis Clube II, e nas galerias Cobo e S/A.</p>
+        <p>Seu trabalho é bastante requisitado ao redor do mundo, com colecionadores em Atlanta, Connecticut e Nova York, nos Estados Unidos, além de estar presente em Libourne na França, e Puebla no México.</p>
+        <p>Rafael nasceu em uma família de artistas, onde começou desde criança colorindo os desenhos de seu pai, Eduardo, fazia, e também nas obras de arte de seu tio, Fernando.</p>
+        <p>O artista acredita que nessa vida nada acontece por acaso, tudo tem um porquê, tudo tem uma explicação, tudo é fruto de um princípio e toda ação que fazemos no presente, responde uma pergunta que foi antes mentalizada por nós. A iluminação está dentro de nós.</p>
+      </div>
+
+      <div class="collections">
+        <ul>
+          <li>Belo Horizonte, Brasil;</li>
+          <li>Nova Lima, Brasil;</li>
+          <li>São Paulo, Brasil;</li>
+          <li>Puebla, México;</li>
+          <li>Atlanta, Estados Unidos;</li>
+          <li>Connecticut, Estados Unidos;</li>
+          <li>New York, Estados Unidos;</li>
+          <li>Libourne, França.</li>
+        </ul>
+        <p class="section-label">coleções particulares</p>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="col">
+      <div class="frame-wrap">
+        <div class="frame">
+          <img src="https://www.figma.com/api/mcp/asset/bc4e844f-d796-4729-98de-91ca81aaf15d.png" alt="Quadro">
+        </div>
+      </div>
+
+      <div class="content-panel">
+
+        <div class="block">
+          <ul><li>Cable Factory Cultural Center</li></ul>
+          <p class="section-label">instituições internacionais</p>
+        </div>
+
+        <div class="block">
+          <ul>
+            <li>Museu MM Gerdau;</li>
+            <li>Minas Tênis Clube;</li>
+            <li>Mercado Novo;</li>
+            <li>Centro Cultural dos Correios;</li>
+            <li>Espaço Cultural dos Correios.</li>
+          </ul>
+          <p class="section-label">instituições nacionais</p>
+        </div>
+
+        <div class="block">
+          <ul class="clip-list">
+            <li>Google Arts &amp; Cultura: <a href="https://artsandculture.google.com/story/mwUhQNVdoUMomg" target="_blank">https://artsandculture.google.com/mwUomg</a></li>
+            <li>MM Gerdau: <a href="https://www2.gerdau.com.br/noticias/exposicao-no-mm-gerdau-coletiva-cobo-galeria-de-marcus-paschoalin-e-roderio-flausino/" target="_blank">https://www2.gerdau.com.br/noticias/exposicao-coletiva-cobo-galeria</a></li>
+            <li>Publicação: <a href="https://mmgerdau.org.br/coletiva-cobo-galeria/" target="_blank">https://mmgerdau.org.br/coletiva-cobo-galeria/</a></li>
+            <li>Entrevista para o Agenda da Rede Minas: <a href="https://www.youtube.com/watch?v=e7a2yM72ZCc&t=3s" target="_blank">https://www.youtube.com/watch?v=e7a2yM72ZCc&t=3s</a></li>
+            <li>Minas Tênis Clube: <a href="https://minastenisclube.com.br/noticias/cultura-mentalismo-minas-ii/" target="_blank">https://minastenisclube.com.br/noticias/cultura-mentalismo-minas-ii</a></li>
+            <li>Bela Bienal (Internacional): <a href="https://www.gabrielanasser.com.br/2021/07/13/a-quinta-bela-bienal-europeia-e-latino-americana-de-arte-contemporanea-abre-as-portas-no-dia-15-de-julho-no-cable-factory-cultural-center-em-helsinque-finlandia/" target="_blank">https://www.gabrielanasser.com.br/2021/bela-bienal</a></li>
+            <li>Guia das Artes: <a href="https://www.guiadasartes.com.br/noticias/5-edicao-da-bela--bienal-europeia-e-latino-americana-de-arte-contemporanea" target="_blank">https://www.guiadasartes.com.br/noticias/5-edicao-da-bela--bienal</a></li>
+          </ul>
+          <p class="section-label clipping">Clipping</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="social-media">
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4H20V18H4V4Z" stroke="currentColor" stroke-width="1.5"/><path d="M4 6L12 13L20 6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 10V17M7 7V7.01M12 17V13C12 11.5 13 10.5 14.5 10.5C16 10.5 17 11.5 17 13V17M12 10.5V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M7 10C10 8.5 14 8.5 17 10.5M7.5 13C10 12 14 12 16 13.5M8 16C10 15.2 13 15.2 15 16.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 9.5L15 12L10 14.5V9.5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-top" style="align-items:flex-end;">
+        <div></div>
+        <div class="footer-right">
+          <div class="footer-logo-symbol">
+            <svg viewBox="0 0 36 43" fill="none"><rect width="36" height="43" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 32V11L28 32V11" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=5531987557784&text=Oi%20Rafael%20Lucchesi%20Tenho%20interesse%20em%20suas%20obras!" target="_blank">
+            falar comigo
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 1.7A8.3 8.3 0 0 0 2.9 14.6L1.7 18.3l3.8-1.2A8.3 8.3 0 1 0 10 1.7Z" stroke="currentColor" stroke-width="1.3"/><path d="M6.8 6.4c.2-.4.4-.4.6-.4h.4c.1 0 .3 0 .4.3.2.4.6 1.3.6 1.4.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.4-.1.1-.3.3-.1.6.2.4.8 1.2 1.7 1.9 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3 0 .2 0 .8-.3 1.5-.3.7-1.6 1.4-2.2 1.4-.6.1-1.3.1-4.3-1.8-3-1.9-3.8-4.3-3.9-4.5-.1-.3-.7-1.2-.7-2.3 0-1.1.6-1.6.8-1.8Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="location">
+          <span class="flags"><span></span><span></span></span>
+          <span>BH, MG — Brasil</span>
+        </div>
+        <p class="copyright">© R.L.7.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
