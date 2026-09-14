@@ -1,5 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rafael Lucchesi — Portfolio</title></head>
-<body><main></main></body>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rafael Lucchesi — Designer &amp; Artista</title>
+<meta content="Rafael Lucchesi, brasileiro, especialista em Design e autodidata nas Artes Plásticas." name="description"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&amp;family=EB+Garamond:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/tokens/tokens.css" rel="stylesheet"/>
+<link href="assets/css/components/components.css" rel="stylesheet"/>
+<link href="assets/css/pages/home.css" rel="stylesheet"/>
+</head>
+<body>
+<main class="page-main">
+<section aria-label="Introdução" class="home-headers">
+<div class="home-headers__col"><img alt="Rafael Lucchesi" class="home-headers__logo theme-image" src="assets/images/home/logo-symbol.svg"/></div>
+<div class="home-headers__col"><p class="home-headers__bio">Sou Rafael Lucchesi, brasileiro, especialista em Design e autodidata nas Artes Plásticas. Na Arte, trabalho com as mãos e encontro espaço para minhas reflexões. No Design, trabalho com o computador e transformo perguntas em respostas. Por onde começamos: reflexões ou respostas?</p></div>
+</section>
+<section aria-label="Áreas de atuação" class="home-cards">
+<article class="home-card home-card--design">
+<div class="home-card__header"><div class="home-card__content"><div class="home-card__eyebrow"><p class="home-card__overline">Especialista</p><p class="home-card__title">designer</p></div><a class="button button--secondary" href="/design/trabalhos.html">conhecer os projetos</a></div></div>
+<div class="home-card__cover"><img alt="Composições de interfaces e projetos de Design de Rafael Lucchesi" src="assets/images/home/card-cover-design.png"/></div>
+</article>
+<article class="home-card home-card--art">
+<div class="home-card__cover"><img alt="Pintura de Rafael Lucchesi com traços coloridos e formas abstratas" src="assets/images/home/card-cover-art.png"/></div>
+<div class="home-card__header"><div class="home-card__content"><div class="home-card__eyebrow"><p class="home-card__overline">Autodidata</p><p class="home-card__title">artista</p></div><a class="button button--secondary" href="/arte/sobre.html">entrar no universo da arte</a></div></div>
+</article>
+</section>
+</main>
+<footer class="footer">
+<div class="footer__top">
+<nav aria-label="Redes sociais" class="footer__social">
+<a aria-label="Abrir Gmail" class="icon-button icon-button--tertiary icon-button--48" href="mailto:contato@rafaellucchesi.com"><img aria-hidden="true" class="icon icon-img" src="assets/icons/gmail.svg"/></a>
+<a aria-label="Abrir LinkedIn" class="icon-button icon-button--tertiary icon-button--48" href="https://www.linkedin.com/in/rafaellucchesi" rel="noopener noreferrer" target="_blank"><img aria-hidden="true" class="icon icon-img" src="assets/icons/linkedin.svg"/></a>
+<a aria-label="Abrir Instagram" class="icon-button icon-button--tertiary icon-button--48" href="https://www.instagram.com/rafaellucchesi" rel="noopener noreferrer" target="_blank"><img aria-hidden="true" class="icon icon-img" src="assets/icons/instagram.svg"/></a>
+<a aria-label="Abrir YouTube" class="icon-button icon-button--tertiary icon-button--48" href="https://www.youtube.com/@rafaellucchesi" rel="noopener noreferrer" target="_blank"><img aria-hidden="true" class="icon icon-img" src="assets/icons/youtube.svg"/></a>
+<a aria-label="Abrir Spotify" class="icon-button icon-button--tertiary icon-button--48" href="https://open.spotify.com/user/rafaellucchesi" rel="noopener noreferrer" target="_blank"><img aria-hidden="true" class="icon icon-img" src="assets/icons/spotify.svg"/></a>
+</nav>
+<div class="footer__brand"><img alt="Rafael Lucchesi — Designer &amp; Artista" class="footer__logo theme-image" src="assets/images/home/logo-type.svg"/><a class="button button--secondary button--icon-right" href="https://api.whatsapp.com/send?phone=5531987557784&amp;text=Oi%20Rafael%20Lucchesi%20Tenho%20interesse%20em%20suas%20obras!" rel="noopener noreferrer" target="_blank">falar comigo<img aria-hidden="true" class="icon icon-img" src="assets/icons/whatsapp.svg"/></a></div>
+</div>
+<div class="footer__bottom">
+<div class="footer__localization"><span aria-hidden="true" class="footer__flags">🇧🇷</span><p>BH, MG — Brasil</p></div>
+<div class="footer__theme"><p>© R.L.7.</p><button aria-label="Alternar tema claro/escuro" class="icon-button icon-button--tertiary icon-button--48" id="theme-toggle" type="button"><img aria-hidden="true" class="icon icon-img" id="theme-toggle-icon" src="assets/icons/dark.svg"/></button></div>
+</div>
+</footer>
+<script>
+var themeToggle=document.getElementById('theme-toggle');var themeToggleIcon=document.getElementById('theme-toggle-icon');themeToggle?.addEventListener('click',function(){var isDark=document.body.getAttribute('data-theme')==='dark';var next=isDark?'light':'dark';document.body.setAttribute('data-theme',next);if(themeToggleIcon){themeToggleIcon.src=next==='dark'?'assets/icons/light.svg':'assets/icons/dark.svg';}themeToggle.setAttribute('aria-label',next==='dark'?'Ativar tema claro':'Ativar tema escuro');});
+</script>
+</body>
 </html>
