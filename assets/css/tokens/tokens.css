@@ -1,86 +1,11 @@
-/* Tokens — v1.1.2 */
-:root {
-  --color-white: #fff;
-  --color-black: #000;
-  --color-gray-50: #f8f8f8;
-  --color-gray-100: #f1f1f1;
-  --color-gray-200: #e5e5e5;
-  --color-gray-300: #d4d4d4;
-  --color-gray-400: #a3a3a3;
-  --color-gray-500: #737373;
-  --color-gray-600: #525252;
-  --color-gray-700: #404040;
-  --color-gray-800: #262626;
-  --color-gray-900: #171717;
-  --color-gray-950: #0a0a0a;
-  --color-orange-500: #ff5a1f;
-  --color-orange-600: #e84c12;
-  --color-red-500: #ef4444;
-  --color-green-500: #22c55e;
-  --color-yellow-500: #eab308;
-  --font-family-sans: Arial, Helvetica, sans-serif;
-  --font-size-xs: .75rem;
-  --font-size-sm: .875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-size-4xl: 3rem;
-  --font-size-display: clamp(3rem, 8vw, 7rem);
-  --line-height-tight: 1.05;
-  --line-height-normal: 1.5;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --space-1: .25rem;
-  --space-2: .5rem;
-  --space-3: .75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
-  --container: 1400px;
-  --page-gutter: clamp(1rem, 4vw, 4rem);
-  --transition-fast: 160ms ease;
-  --bg: var(--color-white);
-  --surface: var(--color-gray-50);
-  --surface-alt: var(--color-gray-100);
-  --text: var(--color-gray-950);
-  --text-secondary: var(--color-gray-600);
-  --border: var(--color-gray-200);
-  --link: var(--color-gray-950);
-  --link-hover: var(--color-orange-500);
-  --icon: var(--color-gray-950);
-  --button-primary-bg: var(--color-gray-950);
-  --button-primary-text: var(--color-white);
-  --button-secondary-bg: transparent;
-  --button-secondary-text: var(--color-gray-950);
-  --button-secondary-border: var(--color-gray-300);
-}
-[data-theme="dark"] {
-  --bg: var(--color-gray-950);
-  --surface: var(--color-gray-900);
-  --surface-alt: var(--color-gray-800);
-  --text: var(--color-white);
-  --text-secondary: var(--color-gray-400);
-  --border: var(--color-gray-800);
-  --link: var(--color-white);
-  --link-hover: var(--color-orange-500);
-  --icon: var(--color-white);
-  --button-primary-bg: var(--color-white);
-  --button-primary-text: var(--color-gray-950);
-  --button-secondary-bg: transparent;
-  --button-secondary-text: var(--color-white);
-  --button-secondary-border: var(--color-gray-700);
-}
+/* ============================================================
+   R.L.7 — Fonte de Design
+   Tokens extraídos do arquivo Figma do Design System via MCP
+   (fileKey: QEDT50s30tFeBs6GPsTS3B)
+
+   Arquitetura em 3 camadas (Material Design 3):
+   1. Primitivos   → valores-base da paleta e da escala
+   2. Marca         → Arte (vermelho) × Design (roxo), via [data-brand]
+   3. Tema          → Light (Dark ainda não modelado no Figma)
+   ============================================================ */
+:root {--spacing:0.25rem;--primitive-neutral-0:#000000;--primitive-neutral-30:#949494;--primitive-neutral-40:#c5c5c5;--primitive-neutral-50:#f6f6f6;--primitive-neutral-100:#ffffff;--primitive-red-50:#e32013;--primitive-blue-60:#815cff;--primitive-green-50:#8ac92b;--primitive-pink-50:#fd2281;--primitive-yellow-50:#ffcc21;--primitive-purple-50:#8c12ff;--font-display:"Lucchesi Display","Oswald",sans-serif;--font-heading:"Oswald",sans-serif;--font-body:"EB Garamond",serif;--font-code:"Courier Prime",monospace;--spacing-1:calc(var(--spacing)*1);--spacing-1-5:calc(var(--spacing)*1.5);--spacing-2:calc(var(--spacing)*2);--spacing-2-5:calc(var(--spacing)*2.5);--spacing-3:calc(var(--spacing)*3);--spacing-3-5:calc(var(--spacing)*3.5);--spacing-4:calc(var(--spacing)*4);--spacing-5:calc(var(--spacing)*5);--spacing-6:calc(var(--spacing)*6);--spacing-8:calc(var(--spacing)*8);--spacing-10:calc(var(--spacing)*10);--spacing-12:calc(var(--spacing)*12);--spacing-14:calc(var(--spacing)*14);--spacing-16:calc(var(--spacing)*16);--spacing-18:calc(var(--spacing)*18);--spacing-20:calc(var(--spacing)*20);--spacing-24:calc(var(--spacing)*24);--spacing-39:calc(var(--spacing)*39);--typography-display-size:64px;--typography-display-line-height:64px;--typography-display-letter-spacing:-2.56px;--typography-display-weight:500;--typography-h1-size:40px;--typography-h1-letter-spacing:-2.56px;--typography-h2-size:30px;--typography-h2-letter-spacing:-0.96px;--typography-h3-size:24px;--typography-h3-letter-spacing:-0.64px;--typography-body-size:20px;--typography-quote-size:18px;--typography-overline-size:12px;--typography-overline-letter-spacing:7px;--typography-label-size:16px;--typography-label-letter-spacing:.7px;--typography-link-size:16px;--typography-code-size:14px;--typography-assignment-size:12px;--typography-assignment-letter-spacing:6px;--typography-metadata-size:11px;--color-primary:var(--primitive-red-50);--color-on-primary:#fff;--color-secondary:var(--primitive-neutral-0);--color-on-secondary:#fff;--color-background:var(--primitive-neutral-100);--color-background-alternative:var(--primitive-neutral-50);--color-heading:var(--primitive-neutral-0);--color-body:#626262;--color-body-light:var(--primitive-neutral-40);--color-body-lighter:#7f7f7f;--color-link:#1c88ff;--color-code:#d63384;--color-border:var(--primitive-neutral-30);--color-border-light:var(--primitive-neutral-40);--color-actived:#0000000d;--color-hover:#00000008;--color-disabled:#ffffffd9;--color-success:#6ea122;--color-on-success:#000;--color-success-light:#f3faea;--color-on-success-light:#000;--color-error:#fd2281;--color-on-error:#000;--color-error-light:#ffe9f2;--color-on-error-light:#000;--color-attention:#ffcc21;--color-on-attention:#000;--color-attention-light:#fffae9;--color-on-attention-light:#000;--color-informative:#8c12ff;--color-on-informative:#000;--color-informative-light:#f3e7ff;--color-on-informative-light:#000}body[data-brand="arte"]{--color-primary:var(--primitive-red-50);--color-on-primary:#fff}body[data-brand="design"]{--color-primary:#6233ff;--color-on-primary:#fff}body[data-theme="dark"]{--color-secondary:#fff;--color-on-secondary:#000;--color-background:#000;--color-background-alternative:#313131;--color-heading:#fff;--color-body:#949494;--color-body-light:#626262;--color-body-lighter:var(--color-body);--color-link:#4da3ff;--color-code:#d63384;--color-border:#626262;--color-border-light:#626262;--color-actived:#ffffff0d;--color-hover:#ffffff08;--color-disabled:#000000d9;--color-success:#8ac92b;--color-on-success:#000;--color-success-light:#1c2809;--color-on-success-light:#fff;--color-error:#fd2281;--color-on-error:#000;--color-error-light:#33071a;--color-on-error-light:#fff;--color-attention:#ffcc21;--color-on-attention:#000;--color-attention-light:#332907;--color-on-attention-light:#fff;--color-informative:#a341ff;--color-on-informative:#000;--color-informative-light:#380766;--color-on-informative-light:#fff}*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--color-background);color:var(--color-body);font-family:var(--font-body);font-weight:500;font-size:var(--typography-body-size);line-height:normal;transition:background-color .2s ease,color .2s ease}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
