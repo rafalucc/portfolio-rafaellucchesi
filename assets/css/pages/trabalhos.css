@@ -1,0 +1,2 @@
+/* Trabalhos — Design — v1.1.2 */
+.trabalhos-main{display:flex;flex-direction:column;align-items:center;width:100%;max-width:1920px;margin:0 auto;overflow:clip;gap:var(--spacing-24);padding:var(--spacing-12) var(--spacing-6)}.trabalhos-cards{display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}@media(min-width:1280px){.trabalhos-main{padding:var(--spacing-24) var(--spacing-39)}.trabalhos-cards{flex-direction:row;align-items:stretch;gap:var(--spacing-18)}.trabalhos-cards .card{flex:1 0 0}}
