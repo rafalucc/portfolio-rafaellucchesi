@@ -1,7 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="47" height="56" viewBox="0 0 47 56">
+  <defs>
+    <filter id="invert" color-interpolation-filters="sRGB">
+      <feColorMatrix values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
+    </filter>
+  </defs>
   <style>
-    image { filter: none; }
-    @media (prefers-color-scheme: dark) { image { filter: invert(1); } }
+    .dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .light { display: none; }
+      .dark { display: inline; }
+    }
   </style>
-  <image href="logo-symbol.svg" width="47" height="56"/>
+  <image class="light" href="logo-symbol.svg" width="47" height="56"/>
+  <image class="dark" href="logo-symbol.svg" width="47" height="56" filter="url(#invert)"/>
 </svg>
