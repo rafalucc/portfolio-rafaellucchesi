@@ -10,7 +10,11 @@
   function initTheme(){try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}}
 
   function normalizeLegacyLinks(){
-    document.querySelectorAll('a[href="/design/trabalhos/trabalho-2/"]').forEach(link=>link.href='/design/trabalhos/devopness/');
+    const routes={
+      '/design/trabalhos/trabalho-2/':'/design/trabalhos/devopness/',
+      '/design/trabalhos/trabalho-3/':'/design/trabalhos/umdeia/'
+    };
+    document.querySelectorAll('a[href]').forEach(link=>{const route=routes[link.getAttribute('href')];if(route)link.setAttribute('href',route)});
   }
 
   function renderNavbar(){
