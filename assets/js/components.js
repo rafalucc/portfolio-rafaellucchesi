@@ -9,6 +9,10 @@
 
   function initTheme(){try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}}
 
+  function normalizeLegacyLinks(){
+    document.querySelectorAll('a[href="/design/trabalhos/trabalho-2/"]').forEach(link=>link.href='/design/trabalhos/devopness/');
+  }
+
   function renderNavbar(){
     const old=document.querySelector('header.navbar');if(!old)return;
     const brand=document.body.dataset.brand,path=location.pathname,isDesign=brand==='design'||path.startsWith('/design/'),isArte=brand==='arte'||path.startsWith('/arte/');
@@ -27,6 +31,6 @@
     sync();button.addEventListener('click',()=>{const next=document.body.dataset.theme==='dark'?'light':'dark';document.body.dataset.theme=next;try{localStorage.setItem('rl-theme',next)}catch(e){}sync()});
   }
 
-  function init(){initTheme();renderNavbar();renderFooter()}
+  function init(){initTheme();normalizeLegacyLinks();renderNavbar();renderFooter()}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
