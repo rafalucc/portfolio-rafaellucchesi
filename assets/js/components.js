@@ -7,6 +7,9 @@
   };
   const themeIcon=dark=>`<span class="icon icon-mask" style="-webkit-mask:url('/assets/icons/${dark?'light':'dark'}.svg') center/contain no-repeat;mask:url('/assets/icons/${dark?'light':'dark'}.svg') center/contain no-repeat;background:currentColor" aria-hidden="true"></span>`;
 
+  const workCards={umdeia:{brand:'Umdeia',logo:'/assets/logos/logo-umdeia.svg',period:'2019—2009',title:'estúdio Design',href:'/design/trabalhos/umdeia/',cta:'ver case umdeia',image:'/assets/images/design/cases/case-umdeia-creative-studio.png',alt:'Case Umdeia: materiais de marca e branding do estúdio de Design'}};
+  function renderWorkCards(){document.querySelectorAll('.card[data-work-card]').forEach(card=>{const d=workCards[card.dataset.workCard];if(!d)return;card.innerHTML='<div class="card__header"><div class="card__meta"><div class="card__meta-left"><img alt="'+d.brand+'" class="card__brand" height="32" src="'+d.logo+'" width="32"></div><p class="card__period">'+d.period+'</p></div><h1 class="card__title">'+d.title+'</h1><a class="button button--secondary" href="'+d.href+'">'+d.cta+'</a></div><div class="card__media"><img alt="'+d.alt+'" src="'+d.image+'"></div>';});}
+
   function initTheme(){try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}}
 
   function normalizeLegacyLinks(){
@@ -35,6 +38,6 @@
     sync();button.addEventListener('click',()=>{const next=document.body.dataset.theme==='dark'?'light':'dark';document.body.dataset.theme=next;try{localStorage.setItem('rl-theme',next)}catch(e){}sync()});
   }
 
-  function init(){initTheme();normalizeLegacyLinks();renderNavbar();renderFooter()}
+  function init(){initTheme();normalizeLegacyLinks();renderWorkCards();renderNavbar();renderFooter()}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
