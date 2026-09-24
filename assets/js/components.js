@@ -24,7 +24,7 @@
     const old=document.querySelector('header.navbar');if(!old)return;
     const brand=document.body.dataset.brand,path=location.pathname,isDesign=brand==='design'||path.startsWith('/design/'),isArte=brand==='arte'||path.startsWith('/arte/');
     let tabs='',label='Navegação principal';
-    if(isDesign){const work=path.startsWith('/design/trabalhos'),about=path.startsWith('/design/sobre');tabs=`<a class="tab${work?' tab--active':''}" href="/design/trabalhos/"${work?' aria-current="page"':''}>trabalhos</a><a class="tab${about?' tab--active':''}" href="/design/sobre/"${about?' aria-current="page"':''}>sobre</a>`}
+    if(isDesign){const work=path.startsWith('/design/trabalhos'),about=path.startsWith('/design/sobre'),articles=path.startsWith('/design/artigos');tabs=`<a class="tab${work?' tab--active':''}" href="/design/trabalhos/"${work?' aria-current="page"':''}>trabalhos</a><a class="tab${about?' tab--active':''}" href="/design/sobre/"${about?' aria-current="page"':''}>sobre</a><a class="tab${articles?' tab--active':''}" href="/design/artigos/"${articles?' aria-current="page"':''}>artigos</a>`}
     else if(isArte){label='Navegação de Arte';const about=path.startsWith('/arte/sobre');tabs=`<a class="tab${about?' tab--active':''}" href="/arte/sobre/"${about?' aria-current="page"':''}>sobre</a>`}
     else return;
     old.innerHTML=`<a class="navbar__logo" aria-label="Ir para a Home" href="/"><span class="navbar__logo-mark" aria-hidden="true"></span></a><nav class="navbar__nav" aria-label="${label}"><div class="tabs">${tabs}</div></nav>`;
