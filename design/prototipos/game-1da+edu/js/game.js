@@ -6,7 +6,7 @@ var LEAF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C10 3 4 8 
 /* ---------- copy ---------- */
 var T = {
  pt:{
-  lang:"English", view:"Ver o tabuleiro todo", follow:"Seguir a aventura", roll:"Jogar o dado", rolling:"Rolando…", skipBtn:"Passar a vez",
+  coachTitle:"Comece por aqui", coachText:"Toque em “Jogar o dado”, na barra de baixo, para mover o seu peão.", lang:"English", view:"Ver o tabuleiro todo", follow:"Seguir a aventura", roll:"Jogar o dado", rolling:"Rolando…", skipBtn:"Passar a vez",
   phase:"Fase {n} de 5", leaves:"Fases concluídas", ok:"Entendi", why:"Por que importa?", loss:"Uma perda para todos nós", okLoss:"Vamos cuidar do que ficou", actLabel:"Hora de agir", actDone:"Ação concluída", plantTitle:"Vamos reflorestar!", plantEdu:"Plantar uma árvore nativa no lugar protege o solo e traz os bichos de volta.", plantBtn:"Plantar uma muda", plantDone:"Muda plantada!", plantDoneEdu:"Em alguns anos, ela volta a dar sombra e abrigo.", fireTitle:"Chame os Bombeiros!", fireEdu:"Saia do local o mais rápido possível, fique longe da fumaça e ligue 193, o número dos Bombeiros no Brasil.", callBtn:"Ligar 193", fireDone:"Os Bombeiros estão a caminho!", fireDoneEdu:"Nunca tente apagar um incêndio na mata sozinho. Isso é trabalho dos Bombeiros.",
   startTitle:"Aventura Ambiental", startKicker:"Brincando e aprendendo com a educação ambiental",
   startText:"Florestas, rios e nascentes estão em risco no mundo todo. Pequenas atitudes ajudam a protegê-los.",
@@ -38,7 +38,7 @@ var T = {
   a5:{prompt:"Torneira pingando desperdiça dezenas de litros por dia. Feche todas as abertas.", open:"Aberta", closed:"Fechada", count:"Fechadas: {n} de {t}", right:"Todas fechadas! Menos desperdício em casa, mais água na natureza."}
  },
  en:{
-  lang:"Português", view:"See the whole board", follow:"Follow the adventure", roll:"Roll the dice", rolling:"Rolling…", skipBtn:"Skip this turn",
+  coachTitle:"Start here", coachText:"Tap “Roll the dice” in the bottom bar to move your pawn.", lang:"Português", view:"See the whole board", follow:"Follow the adventure", roll:"Roll the dice", rolling:"Rolling…", skipBtn:"Skip this turn",
   phase:"Phase {n} of 5", leaves:"Phases completed", ok:"Got it", why:"Why it matters", loss:"A loss for all of us", okLoss:"Let's care for what remains", actLabel:"Time to act", actDone:"Done", plantTitle:"Let's reforest!", plantEdu:"Planting a native tree here protects the soil and brings the animals back.", plantBtn:"Plant a seedling", plantDone:"Seedling planted!", plantDoneEdu:"In a few years, it will give shade and shelter again.", fireTitle:"Call the firefighters!", fireEdu:"Get away as fast as you can, stay clear of the smoke and call 193, Brazil's fire department number.", callBtn:"Call 193", fireDone:"The firefighters are on their way!", fireDoneEdu:"Never try to put out a forest fire on your own. That's the firefighters' job.",
   startTitle:"Environmental Adventure", startKicker:"Playing and learning with environmental education",
   startText:"Forests, rivers and springs are at risk all over the world. Small choices help protect them.",
@@ -541,7 +541,6 @@ function buildScenery(){
   var drop = new THREE.Mesh(new THREE.SphereGeometry(0.16,16,12), Water()); drop.scale.set(1,1.4,1); put(drop,tq.x+0.9,1.0,tq.z); drops.push(drop);
   var rp = at(510,445); var ring = new THREE.Mesh(new THREE.TorusGeometry(0.55,0.12,12,28), G(0xFFE31A,0.35)); ring.rotation.x = -Math.PI/2.4; put(ring,rp.x,0.6,rp.z);
   // signs on lecterns: start, final, every board callout
-  makeCallout("start","","",[1205,282,120,130],0.85);
   makeCallout("final","","",[112,385,182,100],0.85);
   Object.keys(EV).forEach(function(k){ var e = EV[k]; makeCallout(+k, e[lang][0], e[lang][1], e.at); });
   // exhibition objects from the reference
@@ -812,7 +811,7 @@ function refreshHud(){
 }
 function refreshChrome(){
   document.documentElement.lang = lang==="pt" ? "pt-BR" : "en";
-  $("langBtn").textContent = t("lang"); drawScore(); $("viewBtn").textContent = overview ? t("follow") : t("view");
+  $("langBtn").textContent = t("lang"); drawScore(); if(coaching){ $("coachTitle").textContent = t("coachTitle"); $("coachText").textContent = t("coachText"); placeCoach(); } $("viewBtn").textContent = overview ? t("follow") : t("view");
   refreshCallouts(); refreshHud();
 }
 function openModal(html){ $("mBody").innerHTML = html; $("modal").hidden = false; var f = $("mBody").querySelector("button"); if(f) f.focus(); }
@@ -822,13 +821,33 @@ function startScreen(){
   openModal('<p class="kicker">'+t("startKicker")+'</p><h2 id="mTitle">'+t("startTitle")+'</h2><p>'+t("startText")+'</p><p>'+t("startHow")+'</p><p>'+t("startODS")+'</p><button type="button" class="primary" id="go">'+t("start")+'</button>'+(TEST_MODE ? '<p class="kicker" style="margin-top:10px;color:var(--bad)">'+(lang==="pt"?"Modo teste ativo: o jogo começa na casa 59.":"Test mode on: the game starts on square 59.")+'</p>' : '')+'');
   $("go").onclick = newGame;
 }
+
+/* ---------- first-move coach mark ---------- */
+var coaching = false;
+function placeCoach(){
+  if(!coaching) return;
+  var r = $("rollBtn").getBoundingClientRect(), tip = $("coachTip"), w = tip.offsetWidth;
+  var cx = r.left + r.width/2, left = Math.max(12, Math.min(window.innerWidth - w - 12, cx - w/2));
+  var hudTop = document.querySelector(".hud-inner").getBoundingClientRect().top;
+  tip.style.left = left + "px"; tip.style.bottom = (window.innerHeight - hudTop + 36) + "px";
+  tip.querySelector(".coach-arrow").style.left = (cx - left) + "px";
+}
+function showCoach(){
+  coaching = true; $("coachTitle").textContent = t("coachTitle"); $("coachText").textContent = t("coachText");
+  $("coach").hidden = false; document.body.classList.add("coaching"); $("rollBtn").classList.add("pulse");
+  placeCoach(); $("rollBtn").focus();
+}
+function hideCoach(){
+  if(!coaching) return; coaching = false; $("coach").hidden = true; document.body.classList.remove("coaching"); $("rollBtn").classList.remove("pulse");
+}
+window.addEventListener("resize", placeCoach);
 function newGame(){
   resetActions();
   score = 0; drawScore();
   me.pos = 0; me.done = 0; skipNext = false; dumpNext = false; me.mesh.position.copy(tilePos(0));
   busy = false; gameOn = true; zoom = null; bgTarget.setHex(GROUND);
   Object.keys(vignettes).forEach(function(k){ vignettes[k].visible = false; vignettes[k].scale.setScalar(0.001); });
-  closeModal(); refreshHud(); drawDice(0); hush();
+  closeModal(); refreshHud(); drawDice(0); hush(); showCoach();
   if(TEST_MODE){ me.pos = 59; me.done = 4; score = 60; drawScore(); me.mesh.position.copy(tilePos(59)); camLook.copy(me.mesh.position); refreshHud(); }
 }
 
@@ -1043,6 +1062,7 @@ async function askQuestion(n){
 }
 async function roll(){
   if(busy || !gameOn) return;
+  hideCoach();
   busy = true; hush();
   if(skipNext){ skipNext = false; refreshHud(); say(t("skipped")); busy = false; refreshHud(); return; }
   refreshHud();
@@ -1095,7 +1115,7 @@ function loop(){
 }
 
 /* wiring */
-$("rollBtn").onclick = roll;
+$("rollBtn").onclick = function(){ hideCoach(); roll(); };
 $("viewBtn").onclick = function(){ overview = !overview; refreshChrome(); };
 $("langBtn").onclick = function(){ lang = lang==="pt" ? "en" : "pt"; refreshChrome(); if(!gameOn && me.done<5) startScreen();  };
 document.addEventListener("keydown", function(e){ if((e.code==="Space"||e.key===" ") && $("modal").hidden && (!document.activeElement || document.activeElement.tagName!=="BUTTON")){ e.preventDefault(); roll(); } });
