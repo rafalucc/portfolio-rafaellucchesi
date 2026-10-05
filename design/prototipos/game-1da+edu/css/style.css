@@ -67,6 +67,18 @@ button:focus-visible{ outline:3px solid var(--sun); outline-offset:3px; }
 .bubble.loss .edu{ font-size:16px; }
 .bubble .act.good{ color:var(--ok); } .bubble .act.bad{ color:var(--bad); }
 
+.coach{ position:fixed; inset:0; background:rgba(14,30,16,.62); z-index:6; }
+.coach[hidden]{ display:none; }
+body.coaching .hud{ z-index:7; }
+body.coaching .hud-inner > *:not(#rollBtn){ opacity:.55; }
+.coach-tip{ position:fixed; width:min(86vw,320px); background:var(--panel); color:var(--panel-ink); border-radius:18px; padding:14px 18px 16px; box-shadow:0 6px 0 rgba(0,0,0,.28); text-align:center; }
+.coach-title{ margin:0; font-family:"Fira Sans Condensed",sans-serif; font-weight:900; font-size:22px; }
+.coach-tip p{ margin:4px 0 0; font-size:16.5px; line-height:1.35; }
+.coach-arrow{ position:absolute; bottom:-28px; width:0; height:0; border-left:16px solid transparent; border-right:16px solid transparent; border-top:22px solid var(--orange); transform:translateX(-50%); animation:nudge 1s ease-in-out infinite; }
+@keyframes nudge{ 0%,100%{ transform:translate(-50%,0); } 50%{ transform:translate(-50%,8px); } }
+.roll.pulse{ animation:ring 1.4s ease-out infinite; }
+@keyframes ring{ 0%{ box-shadow:0 5px 0 #B8701C, 0 0 0 0 rgba(245,163,58,.75); } 100%{ box-shadow:0 5px 0 #B8701C, 0 0 0 18px rgba(245,163,58,0); } }
+@media (prefers-reduced-motion: reduce){ .coach-arrow, .roll.pulse{ animation:none; } }
 .hud{ position:fixed; left:0; right:0; bottom:0; padding:12px 14px calc(env(safe-area-inset-bottom,0px) + 14px); display:flex; justify-content:center; pointer-events:none; z-index:5; }
 .hud-inner{ pointer-events:auto; width:min(100%,640px); background:var(--panel); border-radius:22px; padding:12px; display:grid; grid-template-columns:1fr auto auto; grid-template-areas:"who dice roll" "leaves dice roll"; align-items:center; gap:6px 12px; box-shadow:0 6px 0 rgba(0,0,0,.28); }
 .who{ grid-area:who; display:flex; align-items:center; gap:10px; min-width:0; }
