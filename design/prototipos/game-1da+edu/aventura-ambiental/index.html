@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aventura Ambiental · Rafael Lucchesi</title>
+<meta name="description" content="Aventura Ambiental: jogo educativo em 3D sobre a preservação de florestas, rios e nascentes. Releitura digital de Rafael Lucchesi.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@500;600;700;800;900&family=Fira+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="brand"><svg viewBox="0 -10 1680 1000" role="img" aria-label="Aventura Ambiental">
+    <g transform="rotate(-12 840 490)">
+      <rect x="50" y="150" width="1570" height="560" rx="130" fill="#253A70"/>
+      <rect x="480" y="620" width="1090" height="270" rx="100" fill="#253A70"/>
+      <text x="150" y="410" textLength="1090" lengthAdjust="spacingAndGlyphs" font-family="'Fira Sans','Arial Black',sans-serif" font-weight="900" font-size="250" fill="#DCCFAE">AVENTURA</text>
+      <text x="330" y="655" textLength="1210" lengthAdjust="spacingAndGlyphs" font-family="'Fira Sans','Arial Black',sans-serif" font-weight="900" font-size="250" fill="#FFFFFF">AMBIENTAL</text>
+      <line x1="580" y1="805" x2="1480" y2="805" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+    </g>
+  </svg></div>
+  <div class="right">
+    <div class="score" id="score" aria-live="polite">
+      <div class="score-top"><span id="scoreLabel" class="score-label"></span><b id="scoreVal">0</b></div>
+      <div class="score-bar"><i id="scoreFill"></i></div>
+      <span id="scoreGoal" class="score-goal"></span>
+      <span id="scorePop" class="score-pop" aria-hidden="true">+10</span>
+    </div>
+    <div class="tools">
+      <button id="viewBtn" class="chip" type="button"></button>
+      <button id="langBtn" class="chip" type="button"></button>
+    </div>
+  </div>
+</header>
+
+<div id="bubble" class="bubble" hidden><p id="bubbleText"></p><p id="bubbleEduLabel" class="edu-label" hidden></p><p id="bubbleEdu" class="edu" hidden></p><p id="bubbleAct" class="act"></p><button id="bubbleBtn" class="bubble-btn" type="button" hidden></button></div>
+<div id="live" class="sr" role="status" aria-live="polite"></div>
+
+<img class="partners" alt="Anglo American e Educaminas" src="assets/img/parceiros-anglo-american-educaminas.png">
+<footer class="hud">
+  <div class="hud-inner">
+    <div class="who"><span id="pawnDot" class="dot"></span><div style="min-width:0"><div id="whoName" class="name"></div><div id="phaseName" class="phase"></div></div></div>
+    <ol id="leaves" class="leaves"></ol>
+    <div id="dice" class="dice" aria-hidden="true"></div>
+    <button id="rollBtn" class="roll" type="button"></button>
+  </div>
+</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="card" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div id="mBody"></div></div>
+</div>
+
+<script src="js/vendor/three.min.js"></script>
+<script>window.THREE || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');</script>
+<script src="js/game.js"></script>
+</body>
+</html>
