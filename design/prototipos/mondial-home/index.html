@@ -11,7 +11,7 @@
 <script src="/assets/js/favicon.js" defer></script>
 <link rel="stylesheet" href="/assets/css/tokens/tokens.css">
 <link rel="stylesheet" href="/assets/css/components/components.css">
-<script>(async()=>{const d=async u=>{const b=await(await fetch(u)).text(),a=Uint8Array.from(atob(b.trim()),c=>c.charCodeAt(0)),s=new DecompressionStream('gzip'),r=new Response(new Blob([a]).stream().pipeThrough(s));return r.text()};const c=await d('style.css.b64'),st=document.createElement('style');st.textContent=c;document.head.appendChild(st)})()</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-brand="design"><script>try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}</script>
 <header class="navbar"></header>
@@ -167,7 +167,7 @@
 </main>
 <footer class="footer"></footer>
 <div id="live" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" aria-live="polite"></div>
-<script>(async()=>{const b=await(await fetch('prototype.js.b64')).text(),a=Uint8Array.from(atob(b.trim()),c=>c.charCodeAt(0)),s=new DecompressionStream('gzip'),r=new Response(new Blob([a]).stream().pipeThrough(s)),j=await r.text();(0,eval)(j)})()</script>
+<script src="prototype.js"></script>
 <script src="/assets/js/components.js"></script>
 </body>
 </html>
