@@ -130,14 +130,14 @@
 <div class="article-block">
 <h3 class="case-h2">3. build the design system layers in the right order</h3>
 <div class="article-prose">
-<p class="case-body">É importante criar o Design System na ordem certa, pois cada camada tem uma função e complementa a outra:</p>
+<p class="case-body">It is important to build the Design System in the right order because each layer has a role and complements the others:</p>
 <ul class="case-list">
-<li>Tokens codificam conceitos como cor, tipografia, espaçamento e temas;</li>
-<li>Componentes transformam essas decisões em contratos de interface;</li>
-<li>Blocks organizam combinações recorrentes;</li>
-<li>Templates definem estruturas de páginas repetidas.</li>
+<li>Tokens encode concepts such as color, typography, spacing, and themes;</li>
+<li>Components turn those decisions into interface contracts;</li>
+<li>Blocks organize recurring combinations;</li>
+<li>Templates define recurring page structures.</li>
 </ul>
-<p class="case-body">→ Seguir essa ordem evita dois erros comuns. O primeiro é criar componentes com variações demais, tentando responder a qualquer cenário. O segundo é publicar templates rígidos que só funcionam para um caso específico do produto. A regra é simples: cada camada deve abstrair apenas o que já demonstrou recorrência.</p>
+<p class="case-body">→ Following this order avoids two common mistakes. The first is creating components with too many variations in an attempt to cover every scenario. The second is publishing rigid templates that only work for one specific product case. The rule is simple: each layer should abstract only what has already demonstrated recurrence.</p>
 </div>
 </div>
 <div class="article-media">
@@ -146,25 +146,25 @@
 <div class="article-block">
 <h3 class="case-h2">4. define canonical sources before connecting agents</h3>
 <div class="article-prose">
-<p class="case-body">Em vez de explicar em cada prompt como o produto deve funcionar, ofereça ao agente fontes estruturadas que ele possa consultar sozinho. Isso reduz o esforço de quem escreve o prompt e a margem de erro de quem o executa.</p>
-<p class="case-body">→ Você não precisa concentrar tudo em uma única ferramenta. O importante é ter clareza sobre qual fonte responde por cada decisão de design. Um caminho possível:</p>
+<p class="case-body">Instead of explaining how the product should work in every prompt, give the agent structured sources it can consult on its own. This reduces both the effort required to write prompts and the margin for execution errors.</p>
+<p class="case-body">→ You do not need to centralize everything in a single tool. What matters is being clear about which source is responsible for each design decision. One possible setup is:</p>
 <ul class="case-list">
-<li>Figma Variables para expressar as decisões de estilo da marca em tokens;</li>
-<li>Figma como referência de design;</li>
-<li>Storybook para refletir a implementação real de cada artefato;</li>
-<li>GitHub como fonte do código;</li>
-<li>documentação como referência técnica;</li>
-<li>Skills para transformar regras internas em processos reutilizáveis;</li>
-<li>MCP para conectar essas fontes aos agentes.</li>
+<li>Figma Variables to express brand style decisions as tokens;</li>
+<li>Figma as the design reference;</li>
+<li>Storybook to reflect the actual implementation of each artifact;</li>
+<li>GitHub as the code source;</li>
+<li>Documentation as the technical reference;</li>
+<li>Skills to turn internal rules into reusable processes;</li>
+<li>MCP to connect these sources to agents.</li>
 </ul>
-<p class="case-body">Essa estrutura não é uma regra. É um ponto de partida que você pode adaptar à realidade da sua organização.</p>
+<p class="case-body">This structure is not a rule. It is a starting point that you can adapt to your organization's reality.</p>
 </div>
 </div>
 <div class="article-block">
 <h3 class="case-h2">5. document for people and machines</h3>
 <div class="article-prose">
-<p class="case-body">Uma boa documentação para pessoas é clara, objetiva, escaneável e orientada a tarefas do dia a dia. Uma doc para agentes da IA compartilha essas mesmas qualidades, mas precisa ser ainda mais estruturada e específica. Ela deve declarar finalidade, entradas, saídas, restrições, exemplos, exceções e critérios de validação.</p>
-<p class="case-body">→ Skills podem organizar esse conhecimento por tarefa recorrente, como construir um formulário, revisar tokens, criar uma página de leitura ou migrar um componente legado. Assim, em vez de pedir à IA que “siga o Design System”, a organização descreve o processo, aponta as fontes permitidas e exige evidências de teste.</p>
+<p class="case-body">Good documentation for people is clear, objective, scannable, and oriented around everyday tasks. Documentation for AI agents shares those qualities but needs to be even more structured and specific. It should state purpose, inputs, outputs, constraints, examples, exceptions, and validation criteria.</p>
+<p class="case-body">→ Skills can organize this knowledge around recurring tasks such as building a form, reviewing tokens, creating a read page, or migrating a legacy component. Instead of asking AI to simply “follow the Design System,” the organization describes the process, identifies allowed sources, and requires testing evidence.</p>
 </div>
 </div>
 <div class="article-block">
