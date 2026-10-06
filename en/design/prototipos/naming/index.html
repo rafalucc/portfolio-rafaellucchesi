@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="design">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>[beta] 1DA • Naming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#6233ff;--bg:#fff;--alt:#f6f6f6;--head:#000;--body:#626262;--light:#949494;--border:#c5c5c5;--secondary:#000;--on:#fff;--link:#1c88ff;--success:#6ea122;--info:#f3e7ff;box-sizing:border-box}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--alt:#313131;--head:#fff;--body:#949494;--light:#626262;--border:#626262;--secondary:#fff;--on:#000;--link:#4da3ff;--info:#380766}}
+*,*:before,*:after{box-sizing:inherit}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--body);font:400 20px/1.5 "EB Garamond",serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}strong{color:var(--head)}.app{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:flex;align-items:center;gap:16px;padding:12px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap}.brand{font:500 24px/28px Oswald,sans-serif;text-transform:uppercase;color:var(--head)}.proj{display:flex;gap:8px}.proj input,.proj select{min-height:36px;padding:4px 10px;border:1px solid transparent;background:transparent;color:var(--head)}.proj input{width:11em}.steps{display:flex;gap:4px;margin:0 0 0 auto;padding:0;list-style:none}.steps button{height:42px;padding:0 10px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--secondary);font:400 17px Oswald,sans-serif;text-transform:lowercase}.steps .cur{color:var(--p);font-weight:700;border-bottom-color:var(--p)}.steps .n{opacity:.55}.steps .done .n:after{content:" ✓"}.work{display:grid;grid-template-columns:minmax(0,1fr) 360px;min-height:0}.chatcol{display:flex;flex-direction:column;min-height:0}.log{flex:1;overflow:auto;padding:32px}.log-inner{max-width:800px;margin:auto;display:flex;flex-direction:column;gap:16px}.msg{max-width:88%;padding:4px 0 4px 16px;border-left:2px solid var(--border);white-space:pre-wrap}.msg.q{border-left-color:var(--p);color:var(--head)}.msg.user{align-self:flex-end;border:0;padding:12px 16px;background:var(--secondary);color:var(--on)}.block{background:var(--alt);padding:24px}.block h3{font:400 24px Oswald,sans-serif;color:var(--head);margin:0 0 6px}.block p{margin:0 0 16px}.composer{border-top:1px solid var(--border);padding:16px 32px 12px}.composer-inner{max-width:800px;margin:auto;display:flex;gap:8px}.composer textarea{flex:1;min-height:42px;padding:9px 12px;resize:none;border:1px solid var(--border);background:var(--bg);color:var(--head)}.hint{max-width:800px;margin:5px auto 0;font-size:13px;color:var(--light)}.btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 16px;border:1px solid var(--border);background:transparent;color:var(--secondary);font:400 16px Oswald,sans-serif;text-transform:lowercase}.btn.primary{background:var(--p);border-color:var(--p);color:#fff}.brief{border-left:1px solid var(--border);overflow:auto;padding:24px;background:var(--bg)}.brief h2{margin:0 0 20px;font:500 22px Oswald,sans-serif;color:var(--head)}.brief h3{margin:22px 0 6px;font:400 13px Oswald,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--light)}.brief p{margin:0;font-size:17px}.progress{height:3px;background:var(--alt);margin:0 0 20px}.progress span{display:block;height:100%;background:var(--p);transition:width .25s}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.card{padding:16px;border:1px solid var(--border);background:var(--bg);text-align:left}.card.active{border-color:var(--p);background:var(--info)}.card b{display:block;font:400 24px Oswald,sans-serif;color:var(--head)}.card small{font-size:14px}.terms{display:flex;flex-wrap:wrap;gap:6px}.term{padding:3px 8px;border:1px solid var(--border);font:400 14px Oswald,sans-serif}.specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.spec{padding:20px 14px;border:1px solid var(--border);background:var(--bg);text-align:left}.spec.selected{border-color:var(--p);background:var(--info)}.spec b{display:block;font:400 28px Oswald,sans-serif;color:var(--head)}.prototype-note{font-size:13px;color:var(--light);margin-left:auto}.mobile-brief{display:none}
+@media(max-width:900px){.top{padding:10px 14px}.proj{order:3;width:100%}.steps{width:100%;overflow:auto;order:4}.steps button{padding:0 8px}.work{grid-template-columns:1fr}.brief{display:none}.log{padding:20px 16px}.composer{padding:12px 16px}.prototype-note{display:none}.mobile-brief{display:block}.brand{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+<div class="brand">1DA • NAMING</div>
+<div class="proj"><input id="project" value="Novo projeto" aria-label="Projeto"><select><option>Português (BR)</option><option>English</option></select></div>
+<span class="prototype-note">protótipo navegável • modo demonstração</span>
+<ol class="steps" id="steps"></ol>
+</header>
+<main class="work">
+<section class="chatcol">
+<div class="log"><div class="log-inner" id="log"></div></div>
+<div class="composer"><div class="composer-inner"><textarea id="input" rows="1" placeholder="Escreva sua resposta"></textarea><button class="btn primary" id="send">Enviar</button></div><div class="hint">Enter envia · Shift+Enter quebra a linha</div></div>
+</section>
+<aside class="brief" id="brief"></aside>
+</main>
+</div>
+<script>
+const stages=[
+{label:'diretrizes',title:'Diretrizes da marca',q:'Qual é o propósito de sua marca existir nos tempos de hoje?',help:'Comece descrevendo em uma ou duas frases o impacto que a marca deseja gerar.',key:'propósito'},
+{label:'tipos',title:'Tipos de nomes',q:'Que tipo de nome combina melhor com a estratégia da marca?',help:'Selecione uma ou mais abordagens para explorar.',key:'tipos'},
+{label:'cenários',title:'Cenários criativos',q:'Quais territórios devem orientar a criação dos nomes?',help:'Escolha os cenários que melhor representam a personalidade e o posicionamento.',key:'cenários'},
+{label:'registro',title:'Registro e domínio',q:'Quais nomes você quer levar para a etapa de verificação?',help:'Nesta versão de portfólio, consultas de INPI e domínio são demonstrativas.',key:'registro'},
+{label:'ranking',title:'Ranking final',q:'Compare os nomes selecionados e monte seu ranking.',help:'Avalie clareza, diferenciação, sonoridade e aderência à estratégia.',key:'ranking'}];
+const data={stage:0,answers:{},types:[],scenarios:[],names:[],ranking:[]};
+const typeOptions=[['Descritivo','Explica diretamente o que a marca faz.'],['Sugestivo','Evoca uma ideia sem descrevê-la literalmente.'],['Inventado','Cria uma palavra nova e proprietária.'],['Metafórico','Usa imagens e conceitos para construir significado.'],['Acrônimo','Sintetiza palavras ou conceitos em uma sigla.'],['Nome próprio','Parte de pessoas, lugares ou referências culturais.']];
+const scenarioOptions=['Transformação','Movimento','Precisão','Proximidade','Liberdade','Origem'];
+const demoNames=['Nexo','Lumera','Orbe','Verta','Naminum','Prisma'];
+function el(tag,cls,txt){const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x}
+function renderSteps(){const s=document.getElementById('steps');s.innerHTML='';stages.forEach((x,i)=>{const li=el('li');const b=el('button',i===data.stage?'cur':i<data.stage?'done':'');b.innerHTML='<span class="n">'+(i+1)+'</span> '+x.label;b.onclick=()=>{data.stage=i;render()};li.append(b);s.append(li)})}
+function addMsg(txt,user=false){const m=el('div','msg '+(user?'user':'q'),txt);document.getElementById('log').append(m)}
+function renderBrief(){const b=document.getElementById('brief');const pct=((data.stage+1)/stages.length)*100;b.innerHTML='<h2>Brief do projeto</h2><div class="progress"><span style="width:'+pct+'%"></span></div>';stages.forEach((s,i)=>{const h=el('h3',null,(i+1)+'. '+s.label);b.append(h);const p=el('p',null,data.answers[s.key]|| (i<data.stage?'Concluído':'—'));b.append(p)})}
+function render(){
+renderSteps();const log=document.getElementById('log');log.innerHTML='';const st=stages[data.stage];addMsg(st.q);const block=el('div','block');block.append(el('h3',null,st.title));block.append(el('p',null,st.help));
+if(data.stage===0){block.append(el('div','terms'));['Propósito','Missão','Visão','Valores','Personalidade'].forEach(x=>block.lastChild.append(el('span','term',x)))}
+if(data.stage===1){const cards=el('div','cards');typeOptions.forEach(([n,d])=>{const c=el('button','card'+(data.types.includes(n)?' active':' '));c.innerHTML='<b>'+n+'</b><small>'+d+'</small>';c.onclick=()=>{data.types.includes(n)?data.types=data.types.filter(x=>x!==n):data.types.push(n);data.answers.tipos=data.types.join(', ');render()};cards.append(c)});block.append(cards)}
+if(data.stage===2){const cards=el('div','cards');scenarioOptions.forEach(n=>{const c=el('button','card'+(data.scenarios.includes(n)?' active':' '));c.innerHTML='<b>'+n+'</b><small>território criativo</small>';c.onclick=()=>{data.scenarios.includes(n)?data.scenarios=data.scenarios.filter(x=>x!==n):data.scenarios.push(n);data.answers.cenários=data.scenarios.join(', ');render()};cards.append(c)});block.append(cards)}
+if(data.stage===3){if(!data.names.length)data.names=demoNames.slice();const specs=el('div','specimens');data.names.forEach(n=>{const c=el('button','spec'+(data.ranking.includes(n)?' selected':' '));c.innerHTML='<b>'+n+'</b><small>selecionar para ranking</small>';c.onclick=()=>{data.ranking.includes(n)?data.ranking=data.ranking.filter(x=>x!==n):data.ranking.push(n);data.answers.registro=data.ranking.join(', ');render()};specs.append(c)});block.append(specs);const note=el('p',null,'Consulta automática de domínio desativada nesta demonstração.');note.style.marginTop='14px';block.append(note)}
+if(data.stage===4){if(!data.ranking.length)data.ranking=demoNames.slice(0,3);const specs=el('div','specimens');data.ranking.forEach((n,i)=>{const c=el('div','spec selected');c.innerHTML='<small>#'+(i+1)+'</small><b>'+n+'</b><small>clareza · diferenciação · sonoridade</small>';specs.append(c)});block.append(specs)}
+log.append(block);if(data.answers[st.key])addMsg(data.answers[st.key],true);renderBrief();log.scrollTop=log.scrollHeight}
+function submit(){const input=document.getElementById('input');const v=input.value.trim();if(!v)return;const st=stages[data.stage];data.answers[st.key]=v;input.value='';if(data.stage<stages.length-1)data.stage++;render()}
+document.getElementById('send').onclick=submit;document.getElementById('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit()}});
+render();
+</script>
+</body></html>
