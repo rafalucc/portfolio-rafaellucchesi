@@ -309,3 +309,6 @@ body.hints .tap{ box-shadow:inset 0 0 0 2px rgba(227,6,19,.85); }
 #home.intro .people > *:nth-child(5){ animation-delay:3.52s; }
 #home.intro .people > *:nth-child(6){ animation-delay:3.7s; }
 @media (prefers-reduced-motion: reduce){ .scr,.ov,.ov .card,.tap{ transition:none !important; } #home.intro *, #login.intro *, #timeline * { animation:none !important; } }
+/* Window-opening sensor changes only in alert mode */
+#home.hot .b-sq, #timeline.hot .b-sq{ background:#FDD583; color:#B7780D; }
+#timeline.hot .tl-node.window{ background:#FDD583; border-color:#F49B17; }
