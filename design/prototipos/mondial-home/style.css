@@ -162,6 +162,8 @@ body.hints .tap{ box-shadow:inset 0 0 0 2px rgba(227,6,19,.85); }
 .geo-home i:nth-child(3){ animation-delay:3.6s; }
 .map-pins{ position:absolute; inset:0 0 auto 0; height:250px; pointer-events:none; }
 .home-pin{ position:absolute; left:159.5px; top:125.5px; width:52px; height:52px; margin:-26px 0 0 -26px; border-radius:50%; background:#52B994; box-shadow:0 0 0 5.5px #2E9461; display:grid; place-items:center; }
+#monitor.hot .home-pin{ background:#FDD583; box-shadow:0 0 0 5.5px #F49B17; }
+#monitor.hot .geo-home i{ background:radial-gradient(circle,rgba(253,213,131,0) 40%,rgba(253,213,131,.42) 100%); border-color:rgba(244,155,23,.85); }
 .map-av{ position:absolute; transform:translate(-50%,-50%); border-radius:50%; border:3px solid #fff; background:#ddd center/cover; box-shadow:0 1px 3px rgba(0,0,0,.25); }
 @keyframes homeFence{ 0%{ transform:scale(.08); opacity:0; } 12%{ opacity:1; } 65%{ opacity:.75; } 100%{ transform:scale(1); opacity:0; } }
 @media (prefers-reduced-motion: reduce){ .geo-home i{ animation:none; } }
