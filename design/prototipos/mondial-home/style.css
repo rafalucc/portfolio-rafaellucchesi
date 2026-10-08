@@ -312,3 +312,6 @@ body.hints .tap{ box-shadow:inset 0 0 0 2px rgba(227,6,19,.85); }
 /* Window-opening sensor changes only in alert mode */
 #home.hot .b-sq, #timeline.hot .b-sq{ background:#FDD583; color:#B7780D; }
 #timeline.hot .tl-node.window{ background:#FDD583; border-color:#F49B17; }
+
+/* Explicit door-count color in Casa and Timeline, including alert state */
+#home .badge.b-ci, #timeline .badge.b-ci, #home.hot .badge.b-ci, #timeline.hot .badge.b-ci{ color:#B7780D !important; }
