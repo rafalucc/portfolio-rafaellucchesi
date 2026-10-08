@@ -2,14 +2,19 @@ var STATES = {loading:["loading"], login:["login"], home:["home"], push:["home",
 var NAMES = {loading:"Abertura", login:"Login", home:"Casa", timeline:"Timeline da família", push:"Alerta de incêndio", monitor:"Monitorar", assist:"Tipo de assistência", confirm:"Confirmar socorro", ok:"Socorro a caminho", track:"Acompanhar socorro"};
 var ORDER = ["loading","login","home","timeline","push","monitor","assist","confirm","ok","track"];
 var TL = [["15:19 PM","p-fernando","Chegou em casa","Fernando Trivelato"],["15:01 PM","p-mariana","Chegou em casa","Mariana Ferreira"],["14:47 PM","presence","Detectou algum movimento na sala","Presença"],["14:01 PM","p-alberto","Saiu de casa","Alberto Trivelato"],["13:33 PM","p-mariana","Saiu de casa","Mariana Ferreira"],["13:17 PM","presence","Detectou algum movimento na sala","Presença"],["13:01 PM","door","Abriu a porta da sala","Porta"],["12:47 PM","presence","Detectou algum movimento no quarto","Presença"],["12:01 PM","p-roberto","Chegou em casa","Roberto Trivelato"],["11:33 AM","door","Abriu a porta da garagem","Porta"],["11:17 AM","arm","Ativou o dispositivo","Armou"]];
+var TL_ALERT = [["15:28 PM","window","Mariana abriu a janela da sala","Mariana Ferreira"],["15:26 PM","window","Fernando abriu a janela do quarto","Fernando Trivelato"],["15:24 PM","window","Alberto abriu a janela da cozinha","Alberto Trivelato"]];
 var PHOTOS = {"p-fernando": "/assets/images/design/prototypes/p-fernando.jpg", "p-mariana": "/assets/images/design/prototypes/p-mariana.jpg", "p-alberto": "/assets/images/design/prototypes/p-alberto.jpg", "p-roberto": "/assets/images/design/prototypes/p-roberto.jpg"};
 var list = document.getElementById("tlList");
-TL.forEach(function(r){
+function renderTimeline(alert){
+  list.innerHTML = "";
+  (alert ? TL_ALERT.concat(TL) : TL).forEach(function(r){
   var it = document.createElement("div"); it.className = "tl-item";
   var node = PHOTOS[r[1]] ? '<span class="tl-node" style="background-image:url('+PHOTOS[r[1]]+')"></span>' : '<span class="tl-node '+r[1]+'">'+(r[1]==="arm" ? '<svg width="10" height="9" viewBox="0 0 14 13" aria-hidden="true"><path d="M1 6.5L7 1l6 5.5M2.8 5v7h8.4V5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>' : '')+'</span>';
   it.innerHTML = '<span class="tl-time">'+r[0]+'</span>'+node+'<span class="tl-txt">'+r[2]+'<b>'+r[3]+'</b></span>';
   list.appendChild(it);
-});
+  });
+}
+renderTimeline(false);
 var app = document.getElementById("app"), scr = document.getElementById("screen"), current = null, autoT = null, timerEnd = 0;
 function fit(){ var s = scr.clientWidth/320; app.style.transform = "scale(" + s + ")"; scr.style.height = (568*s) + "px"; }
 window.addEventListener("resize", fit); fit();
@@ -18,6 +23,9 @@ ORDER.forEach(function(k){ var li = document.createElement("li"), b = document.c
 var CHIP_T = [], skipIntro = false, homeVisits = 0;
 function setHot(on){
   var h = document.getElementById("home"); h.classList.toggle("hot", on);
+  document.getElementById("timeline").classList.toggle("hot", on);
+  document.querySelectorAll("#home .b-sq, #timeline .b-sq").forEach(function(b){ b.innerHTML = on ? "3" : '<svg width="14" height="11" viewBox="0 0 14 11" aria-hidden="true"><path class="chk" d="M1.5 5.5l4 4 7-8" fill="none" stroke="#55B08A" stroke-width="2"/></svg>'; });
+  renderTimeline(on);
   document.getElementById("tempVal").textContent = on ? "45ºC" : "27ºC";
   document.getElementById("humVal").textContent = on ? "9%" : "33%";
   document.getElementById("airVal").textContent = on ? "RUIM" : "BOM";
