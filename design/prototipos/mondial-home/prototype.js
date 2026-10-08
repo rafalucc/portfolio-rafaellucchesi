@@ -57,33 +57,8 @@ function homeIntro(){
   });
 }
 
-// Simulated emergency tone (not an official Civil Defense recording).
-var alarmContext = null, alarmTimer = null;
-function stopFireAlarm(){
-  if(alarmTimer){ clearInterval(alarmTimer); alarmTimer = null; }
-  if(alarmContext){ var ctx = alarmContext; alarmContext = null; ctx.close().catch(function(){}); }
-}
-function startFireAlarm(){
-  stopFireAlarm();
-  var AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if(!AudioContextClass) return;
-  try {
-    var ctx = new AudioContextClass(); alarmContext = ctx;
-    function beep(){
-      if(ctx.state !== "running") return;
-      var osc = ctx.createOscillator(), gain = ctx.createGain(), now = ctx.currentTime;
-      osc.type = "sine"; osc.frequency.setValueAtTime(760,now); osc.frequency.linearRampToValueAtTime(980,now+.22);
-      gain.gain.setValueAtTime(.0001,now); gain.gain.exponentialRampToValueAtTime(.10,now+.025);
-      gain.gain.exponentialRampToValueAtTime(.0001,now+.44);
-      osc.connect(gain); gain.connect(ctx.destination); osc.start(now); osc.stop(now+.46);
-    }
-    ctx.resume().then(function(){ if(alarmContext===ctx){ beep(); alarmTimer=setInterval(beep,700); } }).catch(function(){});
-  } catch(e) { stopFireAlarm(); }
-}
-
 function go(k){
   clearTimeout(autoT);
-  if(k!=="push") stopFireAlarm();
   var prev = current, show = STATES[k];
   if(k==="loading" || k==="login"){ homeVisits = 0; setHot(false); }
   var enteredHome = show.indexOf("home") > -1 && !(prev && STATES[prev].indexOf("home") > -1);
@@ -102,7 +77,6 @@ function go(k){
   if(k==="ok" || k==="track"){ if(!timerEnd || Date.now()>timerEnd) timerEnd = Date.now() + 10*60*1000 - 1000; }
   if(["home","login","loading","monitor"].indexOf(k) > -1) timerEnd = 0;
   current = k; tick();
-  if(k==="push" && prev!=="push") startFireAlarm();
   flow.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-current", b.dataset.k===k ? "true" : "false"); });
   document.getElementById("live").textContent = NAMES[k];
   if(k==="loading") autoT = setTimeout(function(){ go("login"); }, 1800);
