@@ -1,7 +1,5 @@
 # Safecar · Car-as-a-Service
 
-Protótipos navegáveis do Safecar — aplicativo mobile (375 × 667), Apple Watch (45 mm) e central multimídia (1280 × 800, também simulada no painel do carro) — desenvolvidos em HTML, CSS e JavaScript, sem dependências de build.
-
 ## Estrutura
 
 ```text
