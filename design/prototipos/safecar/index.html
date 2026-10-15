@@ -717,13 +717,14 @@ function mecanica(s){
   const tabs=Object.entries(SYS).map(([k,v],i)=>{
     const sel=k===s.sys, cls=v.lvl==='ok'?'':v.lvl;
     const showLvl=sel&&v.lvl!=='ok';
-    return `<button class="a sys hs" style="left:${20+i*120}px;top:108px;border-radius:12px" data-act="sys:${k}" aria-pressed="${sel}" aria-label="${v.n}">
+    return `<button class="a sys hs" style="left:${20+i*120}px;top:164px;border-radius:12px" data-act="sys:${k}" aria-pressed="${sel}" aria-label="${v.n}">
       <span class="c ${showLvl?cls:''} ${sel?'sel':''}">${v.ic(showLvl?'#fff':(sel?'#fff':'#5f5f63'),40)}${!sel&&v.lvl!=='ok'?`<i class="dot" style="background:${LVL[v.lvl]}">!</i>`:''}</span>
       <span>${v.n}</span></button>`;}).join('');
   const pct=(27124-20000)/10000;
   return `<div class="a bar"><span class="title">Mecânica</span></div>${MENU_BTN}
   <button class="a ib hs" style="right:0;top:0" data-act="beneficios" aria-label="Benefícios do cartão">${I.tag()}</button>
   <div class="a strip" style="left:0;top:80px;width:1280px;height:165px"></div>
+  <button class="a hs" data-act="oficinas" aria-label="Oficinas mais próximas" style="left:20px;top:87px;width:575px;height:50px;display:flex;align-items:center;gap:16px;padding:0 18px;background:#303034;color:#fff;border:1px solid #57575d;border-radius:9px;text-align:left;font-size:23px;font-weight:600">${I.tools('#bdbdbd',28)}<span style="flex:1">Oficinas mais próximas</span><span aria-hidden="true" style="font-size:34px;color:#bdbdbd;line-height:1">›</span></button>
   ${tabs}
   <div class="a vline" style="left:639px;top:80px;height:165px"></div>
   <div class="a" style="left:662px;top:112px;display:flex;align-items:center;gap:18px">${I.tools('#9a9a9e',40)}<b style="font-size:22px">Próxima revisão</b></div>
