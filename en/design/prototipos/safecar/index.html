@@ -563,7 +563,7 @@ const SYS={
    sev:'<b>Critical issue.</b> Take your car to a mechanic as soon as possible. This issue may damage the vehicle.',t:'Catalytic converter',d:'Fault detected in the ignition system's catalytic converter. Have it checked urgently.'},
  fluidos:{n:'Fluids',ic:I.drop,lvl:'warn',x:538,y:388,
    sev:'<b>Attention.</b> There is no immediate risk, but schedule an inspection at your next stop.',t:'Engine oil',d:'Level is near minimum. Top it up before your next long drive.'},
- controles:{n:'Controles',ic:I.gauge,lvl:'ok',x:395,y:456,sev:'<b>All clear.</b> Nenhuma falha encontrada nos controles do painel.',t:'Painel e comandos',d:'Sensores, luzes de alerta e comandos respondendo normalmente.'},
+ controles:{n:'Controles',ic:I.gauge,lvl:'ok',x:395,y:456,sev:'<b>All clear.</b> No falha encontrada nos controles do painel.',t:'Painel e comandos',d:'Sensores, luzes de alerta e comandos respondendo normalmente.'},
  transmissao:{n:'Transmission',ic:I.gearbox,lvl:'ok',x:285,y:461,sev:'<b>All clear.</b> No transmission faults detected.',t:'Gearbox and clutch',d:'Gear changes and clutch engagement are normal.'},
  circuitos:{n:'Circuits',ic:I.fuse,lvl:'ok',x:552,y:402,sev:'<b>All clear.</b> No electrical circuit faults detected.',t:'Battery and fuses',d:'Battery voltage is stable and fuses are intact.'},
 };
@@ -612,9 +612,9 @@ const HOMEPINS=[['postos',412,100],['postos',763,123],['postos',385,301],['posto
  ['oficinas',83,17],['oficinas',298,18],['oficinas',643,17],['oficinas',858,17],['oficinas',235,402],['oficinas',795,402],
  ['estac',366,116],['estac',924,119],['estac',513,315],['estac',465,395],['estac',1147,393]];
 const ASSIST={
- acidente:{lbl:'EQUIPE A CAMINHO',who:'Equipe de apoio<br>da seguradora · acidente',short:'Equipe de apoio da<br>seguradora',svc:'Accident',ic:()=>I.car('#8a8a8e'),pro:()=>I.car('#fff'),min:15,km:'4,8',vm:'27'},
- pane:{lbl:'GUINCHO A CAMINHO',who:'Guincho credenciado<br>da seguradora · pane',short:'Guincho credenciado da<br>seguradora',svc:'Guincho',ic:()=>I.tools('#8a8a8e',40),pro:()=>I.tools('#fff',40),min:25,km:'9,1',vm:'22'},
- pneu:{lbl:'PROFISSIONAL A CAMINHO',who:'Profissional credenciado<br>da seguradora · troca de pneu',short:'Profissional credenciado da<br>seguradora',svc:'Tire',ic:()=>I.tire('#8a8a8e',40),pro:()=>I.tire('#fff',44),min:20,km:'6,2',vm:'31'},
+ acidente:{lbl:'EQUIPE ON THE WAY',who:'Equipe de apoio<br>da seguradora · acidente',short:'Equipe de apoio da<br>seguradora',svc:'Accident',ic:()=>I.car('#8a8a8e'),pro:()=>I.car('#fff'),min:15,km:'4,8',vm:'27'},
+ pane:{lbl:'GUINCHO ON THE WAY',who:'Guincho credenciado<br>da seguradora · pane',short:'Guincho credenciado da<br>seguradora',svc:'Guincho',ic:()=>I.tools('#8a8a8e',40),pro:()=>I.tools('#fff',40),min:25,km:'9,1',vm:'22'},
+ pneu:{lbl:'PROFISSIONAL ON THE WAY',who:'Profissional credenciado<br>da seguradora · troca de pneu',short:'Profissional credenciado da<br>seguradora',svc:'Tire',ic:()=>I.tire('#8a8a8e',40),pro:()=>I.tire('#fff',44),min:20,km:'6,2',vm:'31'},
 };
 const AS=s=>{const a=ASSIST[s.assistType]||ASSIST.pneu,t=5*60+52+a.min;return {...a,arr:`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}`,tm:`0:${String(a.min).padStart(2,'0')}`};};
 const LOGO=(k,i,sz=100)=>`<img class="logo-img" src="/design/prototipos/safecar/assets/logos/${k}-${i}.png" alt="" style="width:${sz}px;height:${sz}px">`;
@@ -654,7 +654,7 @@ function inicio(s){
   <button class="a hs" style="left:0;top:80px;width:640px;height:165px;display:flex;flex-direction:column;justify-content:center;padding:0 90px" data-act="${s.assistActive?'rastreio':'rota'}" aria-label="${s.assistActive?'Track assistance':'Plan route'}">
     ${s.assistActive
       ? `<div class="lbl-now"><span style="color:#f2a20c">ASSISTANCE ON THE WAY · ARRIVAL ${AS(s).arr}</span></div><div class="addr" style="margin-top:6px">${AS(s).short} a ${AS(s).km} km away</div>`
-      : `<div class="lbl-now">${s.route?`<span style="color:#16c4d8">A CAMINHO · CHEGADA ${routeInfo(s).arr}</span>`:'AGORA'}</div><div class="addr" style="margin-top:6px">${s.route?(s.dest||DEST):NOW}</div>`}
+      : `<div class="lbl-now">${s.route?`<span style="color:#16c4d8">ON THE WAY · ARRIVAL ${routeInfo(s).arr}</span>`:'NOW'}</div><div class="addr" style="margin-top:6px">${s.route?(s.dest||DEST):NOW}</div>`}
   </button>
   <div class="a vline" style="left:639px;top:80px;height:165px"></div>
   <div class="a cell" style="left:640px;top:80px;width:320px;height:165px">
@@ -711,7 +711,7 @@ function rota(s){
   const R=routeInfo(s);
   return `${bar(BACK_BTN,BAR_INFO)}
   <div class="a strip" style="left:0;top:80px;width:1280px;height:166px"></div>
-  <div class="a" style="left:0;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now">AGORA</div><div class="addr" style="margin-top:6px">${NOW}</div></div>
+  <div class="a" style="left:0;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now">NOW</div><div class="addr" style="margin-top:6px">${NOW}</div></div>
   <div class="a vline" style="left:639px;top:80px;height:166px"></div>
   <div class="a" style="left:640px;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now" style="display:flex;justify-content:space-between">DESTINO<span style="color:#fff;font-size:17px">${R.arr}</span></div><div class="addr" style="margin-top:6px">${s.dest||DEST}</div></div>
   <div class="a" style="left:0;top:246px;width:1280px;height:214px;overflow:hidden"><img src="/design/prototipos/safecar/assets/mapa-rota.jpg" alt="Rota no mapa" style="width:1280px;height:214px;max-width:none;display:block"></div>
@@ -801,7 +801,7 @@ function rastreio(s){
   <div class="a strip" style="left:0;top:80px;width:1280px;height:166px"></div>
   <div class="a" style="left:0;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now" style="color:#f2a20c">${A.lbl}</div><div class="addr" style="margin-top:6px">${A.who}</div></div>
   <div class="a vline" style="left:639px;top:80px;height:166px"></div>
-  <div class="a" style="left:640px;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now" style="display:flex;justify-content:space-between">LOCAL DA ASSISTÊNCIA<span style="color:#fff;font-size:17px">${A.arr}</span></div><div class="addr" style="margin-top:6px">${NOW}</div></div>
+  <div class="a" style="left:640px;top:80px;width:640px;height:166px;display:flex;flex-direction:column;justify-content:center;padding:0 90px"><div class="lbl-now" style="display:flex;justify-content:space-between">ASSISTANCE LOCATION<span style="color:#fff;font-size:17px">${A.arr}</span></div><div class="addr" style="margin-top:6px">${NOW}</div></div>
   <div class="a" style="left:0;top:246px;width:1280px;height:214px;overflow:hidden">
     <img src="/design/prototipos/safecar/assets/mapa-rota.jpg" alt="Technician's route to your car" style="width:1280px;height:214px;max-width:none;display:block">
     <div class="a pro" style="left:271px;top:48px">${A.pro()}</div>
@@ -814,7 +814,7 @@ function rastreio(s){
   <div class="a stat" style="left:320px;top:460px;width:320px;height:96px"><div class="v">${A.ic()}${A.svc}</div><div class="k cy">Service</div></div>
   <div class="a stat" style="left:320px;top:558px;width:320px;height:94px"><div class="v">${I.shield('#8a8a8e','check','#2b2b2d',34)}Monuradora</div><div class="k cy">Credenciado</div></div>
   <div class="a stat" style="left:640px;top:460px;width:320px;height:96px"><div class="v">${I.speedo('#8a8a8e',46)}${A.vm}km/h</div><div class="k cy">Average</div></div>
-  <div class="a stat" style="left:640px;top:558px;width:320px;height:94px"><div class="v">${A.arr}</div><div class="k cy">Chegada</div></div>
+  <div class="a stat" style="left:640px;top:558px;width:320px;height:94px"><div class="v">${A.arr}</div><div class="k cy">Arrival</div></div>
   <div class="a stat" style="left:960px;top:460px;width:320px;height:192px"><div class="big" style="font-size:80px">${A.tm}</div><div class="cy" style="font-size:20px">Tempo</div></div>
   <div class="a" style="left:0;top:652px;width:1280px;height:148px;display:grid;grid-template-columns:1fr 1fr">
     <button class="hs" data-act="cancelarAssist" style="background:#000;text-align:center;font-size:36px;font-weight:700">CANCELAR PEDIDO</button>
@@ -880,7 +880,7 @@ function agenda(s){
   <div class="a" style="left:760px;top:80px;width:520px;height:572px;background:#fff;border-left:1px solid #e3e3e3">
     <div style="height:110px;padding:0 30px;background:#f4f4f4;border-bottom:1px solid #e3e3e3;display:flex;align-items:center;gap:20px">
       ${LOGO('oficinas',s.shop||0,76)}<div style="min-width:0">
-      <div style="font-size:16px;color:#888;letter-spacing:.08em">OFICINA</div>
+      <div style="font-size:16px;color:#888;letter-spacing:.08em">REPAIR SHOP</div>
       <div style="font-size:28px;font-weight:700;color:#444;margin-top:4px">${shop.n}</div>
       <div style="font-size:18px;color:#777;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${shop.a}</div></div></div>
     <div style="font-size:20px;font-weight:700;color:#555;padding:14px 30px 6px">Time slots:</div>
@@ -948,8 +948,8 @@ function act(a){
     case 'slot':go({slot:a.slice(5)});break;
     case 'confAgenda':go({modal:'agendado'});break;
     case 'fimAgenda':go({screen:'inicio',modal:null});toast(`Inspection booked: ${S.day}/10 às ${S.slot}`);break;
-    case 'iniciar':go({screen:'inicio',route:true,modal:null});toast(`Rota iniciada · chegada às ${routeInfo(S).arr}`);break;
-    case 'encerrar':go({screen:'inicio',route:false,modal:null});toast('Rota encerrada');break;
+    case 'iniciar':go({screen:'inicio',route:true,modal:null});toast(`Route started · arriving at ${routeInfo(S).arr}`);break;
+    case 'encerrar':go({screen:'inicio',route:false,modal:null});toast('Route ended');break;
     case 'toast':toast(a.slice(6));break;
   }
 }
@@ -999,16 +999,16 @@ function setView(v){view=v;mountView();}
 const FLOW=[
  {k:'inicio',n:'Home',d:'Route, distance, expenses and speeding incidents at a glance.',st:{}},
  {k:'assist',n:'Roadside assistance',d:'Two prominent choices: accident or breakdown.',st:{modal:'assist'}},
- {k:'pedido',n:'Request sent',d:'Confirma o envio e diz quanto tempo falta para a ajuda chegar.',st:{modal:'pedido',assistType:'pneu'}},
+ {k:'pedido',n:'Request sent',d:'Confirms the request and shows the estimated arrival time.',st:{modal:'pedido',assistType:'pneu'}},
  {k:'rastreio',n:'Tracking',d:'Track the insurer-approved technician to the assistance location.',st:{screen:'rastreio',assistActive:true}},
  {k:'perimetro',n:'Perimeter alert',d:'Turn the parked vehicle movement alert on or off.',st:{modal:'perimetro'}},
  {k:'beneficios',n:'Benefits',d:'What the Safecar card covers and what's active.',st:{modal:'beneficios'}},
  {k:'mecanica',n:'Vehicle health',d:'System diagnosis, severity and next service date.',st:{screen:'mecanica'}},
  {k:'rota',n:'Route planning',d:'Route preview showing distance, travel time and fuel consumption before departure.',st:{screen:'rota'}},
- {k:'postos',n:'Rede de postos',d:'Partner gas stations on the map and list, with gasoline and ethanol prices.',st:{screen:'postos'}},
- {k:'estac',n:'Rede de estacionamentos',d:'Partner parking locations with charges paid directly by card.',st:{screen:'estac'}},
- {k:'oficinas',n:'Rede de oficinas',d:'Partner shops for servicing, repairs and inspections.',st:{screen:'oficinas'}},
- {k:'pecas',n:'Rede de auto-peças',d:'Partner auto parts stores with in-store or online purchases.',st:{screen:'pecas'}},
+ {k:'postos',n:'Gas station network',d:'Partner gas stations on the map and list, with gasoline and ethanol prices.',st:{screen:'postos'}},
+ {k:'estac',n:'Parking network',d:'Partner parking locations with charges paid directly by card.',st:{screen:'estac'}},
+ {k:'oficinas',n:'Repair shop network',d:'Partner shops for servicing, repairs and inspections.',st:{screen:'oficinas'}},
+ {k:'pecas',n:'Auto parts network',d:'Partner auto parts stores with in-store or online purchases.',st:{screen:'pecas'}},
  {k:'item',n:'Detalhe do parceiro',d:'Address, card benefit and shortcuts to directions or booking.',st:{screen:'oficinas',modal:'item',pick:0}},
  {k:'agenda',n:'Appointment',d:'Inspection date and time, with fully booked days marked.',st:{screen:'agenda'}},
 ];
@@ -1060,7 +1060,7 @@ function m_inicio(s){
   return `${MHD(MMENU,`${I.wx()}<span style="margin-left:8px;font-size:17px">9 QUA · 23°</span>`)}
   <button class="a hs mstrip" style="left:0;top:79px;width:375px;height:70px" data-act="${s.assistActive?'rastreio':'rota'}" aria-label="${s.assistActive?'Track assistance':'Plan route'}">
     ${s.assistActive
-      ?`<div class="mlbl" style="color:#f2a20c">Assistance on the way · chegada ${A.arr}</div><div class="maddr">${A.short} a ${A.km} km</div>`
+      ?`<div class="mlbl" style="color:#f2a20c">Assistance on the way · arrival ${A.arr}</div><div class="maddr">${A.short} ${A.km} km away</div>`
       :`<div class="mlbl">${s.route?`<span style="color:#16c4d8">A caminho · chegada ${R.arr}</span>`:'Agora'}</div><div class="maddr">${s.route?(s.dest||DEST):NOW}</div>`}
   </button>
   <div class="a mstats" style="left:0;top:149px;width:375px;height:62px">
@@ -1152,7 +1152,7 @@ function m_rota(s){
     <div class="mgrid3">
       <div><span class="big">${R.km}km</span><span class="k">Distance</span></div>
       <div><span class="big">${R.t}</span><span class="k">Tempo</span></div>
-      <div><span class="v">${R.arr}</span><span class="k">Chegada</span></div>
+      <div><span class="v">${R.arr}</span><span class="k">Arrival</span></div>
       <div><span class="v">${I.speedo('#8a8a8e',22)}58km/h</span><span class="k">Average</span></div>
       <div><span class="v">${I.fuel('#8a8a8e',18)}${R.l}L</span><span class="k">Gasto</span></div>
       <div><span class="v">${SZ(I.mountain(),26,12)}52%</span><span class="k">Tuereno</span></div>
@@ -1195,7 +1195,7 @@ function m_agenda(s){
     </div>
     <div class="mcal">${cells.join('')}</div>
     <div style="display:flex;align-items:center;gap:12px;padding:10px 18px;background:#f4f4f4;border-bottom:1px solid #e3e3e3">${LOGO('oficinas',s.shop||0,42)}
-      <div style="min-width:0"><div style="font-size:10px;color:#888;letter-spacing:.08em">OFICINA</div><div style="font-size:15px;font-weight:700;color:#444">${shop.n}</div></div></div>
+      <div style="min-width:0"><div style="font-size:10px;color:#888;letter-spacing:.08em">REPAIR SHOP</div><div style="font-size:15px;font-weight:700;color:#444">${shop.n}</div></div></div>
     <div style="font-size:13px;font-weight:700;color:#555;padding:12px 18px 4px">Time slots:</div>${slots}
   </div>
   <div class="a mbar2" style="grid-template-columns:1fr"><button class="hs" data-act="confAgenda" style="background:#3f4043;font-size:18px;font-weight:300;letter-spacing:0">Schedule</button></div>`;
@@ -1335,8 +1335,8 @@ function mact(a){
     case 'slot':mgo({slot:a.slice(5)});break;
     case 'confAgenda':mgo({modal:'agendado'});break;
     case 'fimAgenda':mgo({screen:'inicio',modal:null});mtoast(`Inspection booked: ${M.day}/10 às ${M.slot}`);break;
-    case 'iniciar':mgo({screen:'inicio',route:true,modal:null});mtoast(`Rota iniciada · chegada às ${routeInfo(M).arr}`);break;
-    case 'encerrar':mgo({screen:'inicio',route:false,modal:null});mtoast('Rota encerrada');break;
+    case 'iniciar':mgo({screen:'inicio',route:true,modal:null});mtoast(`Route started · arriving at ${routeInfo(M).arr}`);break;
+    case 'encerrar':mgo({screen:'inicio',route:false,modal:null});mtoast('Route ended');break;
     case 'toast':mtoast(a.slice(6));break;
   }
 }
@@ -1372,10 +1372,10 @@ const FLOWM=[
  {k:'perimetro',n:'Perimeter alert',d:'Liga ou desliga o aviso de movimento do carro.',st:{modal:'perimetro'}},
  {k:'beneficios',n:'Benefits',d:'What the Safecar card covers and what's active.',st:{modal:'beneficios'}},
  {k:'rota',n:'Route planning',d:'Distance, travel time and fuel consumption before setting off.',st:{screen:'rota'}},
- {k:'postos',n:'Rede de postos',d:'Partner gas stations with gasoline and ethanol prices.',st:{screen:'postos'}},
- {k:'estac',n:'Rede de estacionamentos',d:'Parking fees paid directly by card.',st:{screen:'estac'}},
- {k:'oficinas',n:'Rede de oficinas',d:'Maintenance, repairs and inspection.',st:{screen:'oficinas'}},
- {k:'pecas',n:'Rede de auto-peças',d:'Partner stores, with directions and calling options.',st:{screen:'pecas'}},
+ {k:'postos',n:'Gas station network',d:'Partner gas stations with gasoline and ethanol prices.',st:{screen:'postos'}},
+ {k:'estac',n:'Parking network',d:'Parking fees paid directly by card.',st:{screen:'estac'}},
+ {k:'oficinas',n:'Repair shop network',d:'Maintenance, repairs and inspection.',st:{screen:'oficinas'}},
+ {k:'pecas',n:'Auto parts network',d:'Partner stores, with directions and calling options.',st:{screen:'pecas'}},
  {k:'item',n:'Detalhe do parceiro',d:'Address, benefit and shortcuts in a bottom sheet.',st:{screen:'oficinas',modal:'item',pick:0}},
  {k:'agenda',n:'Appointment',d:'Inspection date and time.',st:{screen:'agenda'}},
 ];
@@ -1414,11 +1414,11 @@ function w_rastreio(s){
   const A=AS(s),sc=.75,CX=132,CY=96,ox=CX-640*sc,oy=CY-172*sc,PX=48,PY=148;
   const route=`<svg class="a" width="198" height="242" style="left:0;top:0;z-index:2"><polyline points="${PX},${PY} ${PX},138 70,130 66,118 90,111 98,102 ${CX},${CY+4}" fill="none" stroke="#3c4a9b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   return `<div class="a" style="left:0;top:0;width:198px;height:242px;overflow:hidden;isolation:isolate">
-      <img src="/design/prototipos/safecar/assets/mapa-base.jpg" alt="Mapa com o prestador on the way do seu carro" style="position:absolute;left:${ox.toFixed(1)}px;top:${oy.toFixed(1)}px;width:${(1280*sc).toFixed(1)}px;height:${(407*sc).toFixed(1)}px;max-width:none">
+      <img src="/design/prototipos/safecar/assets/mapa-base.jpg" alt="Map com o prestador on the way do your car" style="position:absolute;left:${ox.toFixed(1)}px;top:${oy.toFixed(1)}px;width:${(1280*sc).toFixed(1)}px;height:${(407*sc).toFixed(1)}px;max-width:none">
       ${route}${CAR(CX,CY,-28,.42,s.perimeter)}
       <div class="a wpro" style="left:${PX}px;top:${PY}px"><span style="display:flex;transform:scale(.32)">${A.pro()}</span></div></div>
     <div class="a" style="left:0;top:0;width:198px;height:78px;z-index:5;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 38%,rgba(0,0,0,0) 100%)"></div>
-    <div class="a wtop"><button class="hs wback" data-act="home" aria-label="Back"><b>‹</b>Mapa</button>${WCLOCK}</div>
+    <div class="a wtop"><button class="hs wback" data-act="home" aria-label="Back"><b>‹</b>Map</button>${WCLOCK}</div>
     <div class="a wmapbar"><div><span class="tm" id="wtimer">${wMM(wLeft(s))}</span><small>Prestador EJQ-1578</small></div>
       <button class="hs wcall" data-act="toast:Calling o prestador…" aria-label="Ligar para o prestador">${PHONE('#fff',18)}</button></div>`;
 }
@@ -1441,7 +1441,7 @@ function w_modal(s){
     return `<div class="a wsheet fade-in" role="dialog">${top('Pedido','home')}
       <div style="display:flex;justify-content:center;padding:30px 0 8px"><span style="width:44px;height:44px;border-radius:50%;background:#7dbb12;display:flex;align-items:center;justify-content:center">${I.check('#fff',24)}</span></div>
       <div style="text-align:center;font-size:15px;font-weight:600">Request sent</div>
-      <div style="text-align:center;font-size:11.5px;color:#d1d1d6;padding:4px 14px 10px;line-height:1.3">${A.sub}. Chegada em cerca de ${A.min} min.</div>
+      <div style="text-align:center;font-size:11.5px;color:#d1d1d6;padding:4px 14px 10px;line-height:1.3">${A.sub}. Arrival em cerca de ${A.min} min.</div>
       <button class="wcta hs" data-act="rastreio" style="background:#00b4ff">Acompanhar no mapa</button>
       <button class="wcta hs" data-act="home" style="background:#222224">Close</button></div>`;
   }
@@ -1514,7 +1514,7 @@ const FLOWW=[
  {k:'cercaon',n:'Geofence enabled',d:'The geofence pulses around the car and a notification confirms the address.',st:{perimeter:true,note:'on'}},
  {k:'assist',n:'Roadside assistance',d:'Accident, pane ou pneu.',st:{modal:'assist'}},
  {k:'pedido',n:'Request sent',d:'Confirma o pedido e convida a acompanhar no mapa.',st:{modal:'pedido',assistType:'pneu',assistActive:true}},
- {k:'rastreio',n:'Mapa',d:'The watch's map shows the approaching technician and a countdown.',st:{screen:'rastreio',assistType:'pneu',assistActive:true}},
+ {k:'rastreio',n:'Map',d:'The watch's map shows the approaching technician and a countdown.',st:{screen:'rastreio',assistType:'pneu',assistActive:true}},
  {k:'emcurso',n:'Assistance in progress',d:'Back on Home, the countdown continues at the bottom.',st:{assistType:'pneu',assistActive:true}},
 ];
 function wMatches(k){const f=FLOWW.find(x=>x.k===k);if(!f)return false;const st={...WINIT,...f.st};return st.screen===W$.screen&&st.modal===W$.modal&&!!st.perimeter===!!W$.perimeter&&!!st.assistActive===!!W$.assistActive;}
