@@ -743,12 +743,7 @@ function mecanica(s){
     <div class="card"><span class="ic" style="background:${LVL[cur.lvl]}">${cur.lvl==='ok'?I.check('#fff',40):cur.ic('#fff',48)}</span>
       <div><b>${cur.t}</b><span>${cur.d}</span></div></div>
   </div>
-  <div class="a nav" style="grid-template-columns:repeat(4,1fr)">
-    <button class="hs" data-act="home" aria-label="Início"><span class="ic">${SZ(I.home(),52,52)}</span><span class="lb">Início</span></button>
-    <button class="hs" data-act="assist" aria-label="Assistência"><span class="ic">${I.headset('#fff',60)}</span><span class="lb">Assistência</span></button>
-    <button class="hs" data-act="oficinas" aria-label="Oficinas"><span class="ic">${I.wrench('#fff',48)}</span><span class="lb">Oficinas</span></button>
-    <button class="hs" data-act="pecas" aria-label="Auto-Peças"><span class="ic">${I.cart('#fff',56)}</span><span class="lb">Auto-Peças</span></button>
-  </div>`;
+  ${NAV('mec')}`;
 }
 
 function rota(s){
@@ -1163,6 +1158,7 @@ function m_mecanica(s){
       <span class="c ${sel&&!lv?'sel':''}" style="background:${bg};${sel&&lv?'border-color:#fff':''}">${v.ic(sel?'#fff':'#6a6a6e',24)}${!sel&&lv?`<i class="mdot" style="background:${LVL[v.lvl]}">!</i>`:''}</span><span>${v.n}</span></button>`;}).join('');
   return `${MHD(MMENU,'<span>Mecânica</span>')}
   <div class="a mbody" style="bottom:58px">
+    <button class="hs mrowlink" data-act="oficinas">${I.tools('#bdbdbd',24)}<span style="flex:1">Oficinas mais próximas</span><span class="chev" style="border-left-color:#bdbdbd"></span></button>
     <div class="msec" style="position:relative;height:216px;background:#29292b">
       <img src="assets/carro.png" alt="Carro visto de cima" style="position:absolute;left:22px;top:12px;width:330px;height:196px;max-width:none">
       <div class="a mmark ${cur.lvl}" style="left:${mx}px;top:${my}px">${cur.lvl==='ok'?I.check('#fff',20):cur.ic('#fff',20)}</div>
@@ -1180,12 +1176,7 @@ function m_mecanica(s){
     <div class="mdiag fade-in"><p>${cur.sev}</p>
       <div class="card"><span class="ic" style="background:${LVL[cur.lvl]}">${cur.lvl==='ok'?I.check('#fff',24):cur.ic('#fff',28)}</span><div><b>${cur.t}</b><span>${cur.d}</span></div></div></div>
   </div>
-  <div class="a mtab" style="grid-template-columns:repeat(4,1fr)">
-    <button class="hs" data-act="home" aria-label="Início"><span class="ic">${SZ(I.home(),24,24)}</span><span class="lb">Início</span></button>
-    <button class="hs" data-act="assist" aria-label="Assistência"><span class="ic">${I.headset('#fff',27)}</span><span class="lb">Assistência</span></button>
-    <button class="hs" data-act="oficinas" aria-label="Oficinas"><span class="ic">${I.wrench('#fff',21)}</span><span class="lb">Oficinas</span></button>
-    <button class="hs" data-act="pecas" aria-label="Auto-Peças"><span class="ic">${I.cart('#fff',24)}</span><span class="lb">Auto-Peças</span></button>
-  </div>`;
+  ${MTAB('mec')}`;
 }
 
 function m_rota(s){
