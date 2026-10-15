@@ -5,40 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Safecar · Car-as-a-Service</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/svg+xml" href="/assets/images/home/logo-symbol.svg"><script src="/assets/js/favicon.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=EB+Garamond:wght@400;500;600&family=Courier+Prime&display=swap">
+<link rel="stylesheet" href="/assets/css/tokens/tokens.css"><link rel="stylesheet" href="/assets/css/components/components.css">
 <style>
 /* Layout: página de case do portfólio R.L.7 — cabeçalho, palco cinza com a central, telas do fluxo em grade, texto do projeto, rodapé. */
-:root{
-  --color-primary:#6233ff; --color-on-primary:#ffffff;
-  --color-background:#ffffff; --color-background-alternative:#f6f6f6;
-  --color-heading:#000000; --color-body:#626262; --color-border-light:#c5c5c5;
-  --color-hover:#00000008; --color-actived:#0000000d; --color-code:#d63384;
-  --color-success:#6ea122; --color-success-light:#f3faea; --color-error:#fd2281; --color-error-light:#ffe9f2;
-  --font-heading:"Oswald","Arial Narrow",Arial,sans-serif;
-  --font-body:"EB Garamond",Garamond,Georgia,serif;
-  --font-code:"Courier Prime","Courier New",monospace;
-  --device:#1c1d20; --device-edge:#2c2d31;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --color-primary:#8b69ff; --color-on-primary:#ffffff; --color-background:#0e0e10; --color-background-alternative:#18181b;
-  --color-heading:#ffffff; --color-body:#a8a8ae; --color-border-light:#3a3a40; --color-hover:#ffffff0a; --color-actived:#ffffff14;
-  --color-code:#f06aa8; --color-success-light:#1b2410; --color-error-light:#2a1019; --device:#050506; --device-edge:#26272b; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --color-primary:#8b69ff; --color-on-primary:#ffffff; --color-background:#0e0e10; --color-background-alternative:#18181b;
-  --color-heading:#ffffff; --color-body:#a8a8ae; --color-border-light:#3a3a40; --color-hover:#ffffff0a; --color-actived:#ffffff14;
-  --color-code:#f06aa8; --color-success-light:#1b2410; --color-error-light:#2a1019; --device:#050506; --device-edge:#26272b; color-scheme:dark}
+/* Tokens visuais herdados do Design System do site. */
+body.safecar-page{--device:#1c1d20;--device-edge:#2c2d31}
+body.safecar-page[data-theme="dark"]{--device:#050506;--device-edge:#26272b}
 
 body{background:var(--color-background);color:var(--color-body);font:500 20px/1.45 var(--font-body)}
 .band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .in{max-width:1328px;margin:0 auto}
-h1,h2,h3{font-family:var(--font-heading);color:var(--color-heading);text-transform:uppercase;margin:0;text-wrap:balance}
-h1{font-weight:500;font-size:clamp(30px,5vw,40px);line-height:1.05;letter-spacing:-.064em}
-h2{font-weight:400;font-size:30px;line-height:32px;letter-spacing:-.032em}
-h3{font-weight:400;font-size:24px;line-height:1;letter-spacing:-.027em}
+main h1,main h2,main h3{font-family:var(--font-heading);color:var(--color-heading);text-transform:uppercase;margin:0;text-wrap:balance}
+main h1{font-weight:500;font-size:clamp(30px,5vw,40px);line-height:1.05;letter-spacing:-.064em}
+main h2{font-weight:400;font-size:30px;line-height:32px;letter-spacing:-.032em}
+main h3{font-weight:400;font-size:24px;line-height:1;letter-spacing:-.027em}
 .label{font:400 12px var(--font-body);letter-spacing:4px;text-transform:uppercase;color:var(--color-body)}
-p{margin:0;max-width:62ch}
+main p{margin:0;max-width:62ch}
 code{font:400 15px var(--font-code);color:var(--color-code)}
 
 /* Header */
@@ -49,18 +34,18 @@ code{font:400 15px var(--font-code);color:var(--color-code)}
 .top p{margin-top:16px}
 
 /* DS: button / tabs */
-.button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;font:400 16px var(--font-heading);letter-spacing:.7px;text-transform:lowercase;
+.stage-band .button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;font:400 16px var(--font-heading);letter-spacing:.7px;text-transform:lowercase;
   border-radius:0;cursor:pointer;border:1px solid var(--color-primary);background:var(--color-primary);color:var(--color-on-primary)}
-.button--secondary{background:transparent;color:var(--color-heading);border-color:var(--color-border-light)}
-.button--secondary:hover{background:var(--color-hover)}
-.button--secondary[aria-pressed="true"]{border-color:var(--color-primary);color:var(--color-primary);background:var(--color-actived)}
-.button .icon{width:16px;height:16px}
-.tabs{display:flex;flex-wrap:wrap;max-width:100%;gap:0;border-bottom:1px solid var(--color-border-light)}
-.tab{height:42px;padding:0 16px;font:400 16px var(--font-heading);letter-spacing:.7px;text-transform:lowercase;background:none;border:0;
+.stage-band .button--secondary{background:transparent;color:var(--color-heading);border-color:var(--color-border-light)}
+.stage-band .button--secondary:hover{background:var(--color-hover)}
+.stage-band .button--secondary[aria-pressed="true"]{border-color:var(--color-primary);color:var(--color-primary);background:var(--color-actived)}
+.stage-band .button .icon{width:16px;height:16px}
+.stage-band .tabs{display:flex;flex-wrap:wrap;max-width:100%;gap:0;border-bottom:1px solid var(--color-border-light)}
+.stage-band .tab{height:42px;padding:0 16px;font:400 16px var(--font-heading);letter-spacing:.7px;text-transform:lowercase;background:none;border:0;
   color:var(--color-body);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
-.tab:hover{background:var(--color-hover)}
-.tab[aria-selected="true"]{color:var(--color-primary);border-bottom-color:var(--color-primary)}
-.button:focus-visible,.tab:focus-visible,.thumb:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
+.stage-band .tab:hover{background:var(--color-hover)}
+.stage-band .tab[aria-selected="true"]{color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.stage-band .button:focus-visible,.stage-band .tab:focus-visible,.thumb:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 
 /* Stage */
 .stage-band{background:var(--color-background-alternative);padding-block:24px 48px}
@@ -482,7 +467,7 @@ footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items
 @media (prefers-reduced-motion:reduce){.fence,.fence::after,.fade-in,.pop,.slide,.flash .scr .hs::after,.pro::before{animation:none}.toast{transition:none}}
 </style>
 </head>
-<body>
+<body class="safecar-page" data-brand="design"><script>try{const t=localStorage.getItem("rl-theme");if(t==="dark"||t==="light")document.body.dataset.theme=t}catch(e){}</script><header class="navbar"></header><main>
 <header class="band top">
   <div class="in">
     <div>
@@ -568,13 +553,7 @@ footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items
   </div>
 </section>
 
-<footer class="band">
-  <div class="in">
-    <span class="loc">BH, MG — Brasil</span>
-    <div class="sig"><b>Rafael Lucchesi</b><span>designer &amp; artista</span></div>
-    <span class="loc">R.L.7</span>
-  </div>
-</footer>
+</main><footer class="footer"></footer>
 
 <script>
 (function(){
@@ -1624,5 +1603,5 @@ mountView();paint();setPlatform('mobile');
 })();
 </script>
 
-</body>
+<script src="/assets/js/components.js"></script></body>
 </html>
