@@ -1,11 +1,31 @@
 # Safecar · Car-as-a-Service
 
-Protótipo navegável do Safecar.
+Protótipos navegáveis do Safecar — aplicativo mobile (375 × 667), Apple Watch (45 mm) e central multimídia (1280 × 800, também simulada no painel do carro) — desenvolvidos em HTML, CSS e JavaScript, sem dependências de build.
 
-## Estrutura prevista
+## Estrutura
 
-- `index.html` — protótipo web
-- `assets/` — imagens do protótipo
-- `assets/logos/` — logotipos das redes credenciadas
+```text
+safecar/
+├── index.html
+├── README.md
+└── assets/
+    ├── painel.jpg
+    ├── mapa-base.jpg
+    ├── mapa-rota.jpg
+    ├── carro.png
+    ├── carro-v.png
+    └── logos/
+        ├── oficinas-0.png a oficinas-3.png
+        ├── pecas-0.png a pecas-5.png
+        ├── estac-0.png a estac-3.png
+        └── postos-0.png a postos-3.png
+```
 
-Os arquivos do protótipo e as imagens ainda precisam ser enviados para estas pastas. Este README reserva a estrutura do projeto no repositório.
+## Publicação
+
+O `index.html` e as 23 imagens devem ser enviados para os caminhos acima, mantendo a estrutura. As pastas `assets/` e `assets/logos/` já foram criadas com arquivos `.gitkeep`, que podem permanecer ou ser removidos após o upload.
+
+## Créditos
+
+- Ícones: [Remix Icon](https://remixicon.com)
+- Tipografia: Oswald, EB Garamond e Courier Prime (Google Fonts)
