@@ -26,12 +26,11 @@ main h3{font-weight:400;font-size:24px;line-height:1;letter-spacing:-.027em}
 main p{margin:0;max-width:62ch}
 code{font:400 15px var(--font-code);color:var(--color-code)}
 
-/* Header */
-.top{padding-block:48px 40px}
-.top .in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
-.wordmark{display:flex;align-items:center;gap:10px;margin-bottom:24px;font:500 22px var(--font-heading);letter-spacing:-.02em;color:var(--color-heading);text-transform:lowercase}
-.wordmark svg{width:30px;height:30px}
-.top p{margin-top:16px}
+/* Container alinhado à página Mondial Home; ritmo overline/título igual aos cases. */
+.safecar-page .page-main{width:100%;padding:24px 64px 56px;display:flex;flex-direction:column;align-items:flex-start;gap:var(--spacing-6)}
+.safecar-page .page-main-overline{margin:0;font-family:var(--font-body);font-weight:500;font-size:var(--typography-overline-size);line-height:1;letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-body);max-width:none}
+.safecar-page .page-main-title{margin:0;max-width:none;font-family:var(--font-heading);font-weight:500;font-size:var(--typography-h1-size);line-height:42px;letter-spacing:var(--typography-h1-letter-spacing);text-transform:uppercase;color:var(--color-heading)}
+@media(max-width:520px){.safecar-page .page-main{padding:16px 16px 48px}}
 
 /* DS: button / tabs */
 .stage-band .button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;font:400 16px var(--font-heading);letter-spacing:.7px;text-transform:lowercase;
@@ -48,7 +47,7 @@ code{font:400 15px var(--font-code);color:var(--color-code)}
 .stage-band .button:focus-visible,.stage-band .tab:focus-visible,.thumb:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 
 /* Stage */
-.stage-band{background:var(--color-background-alternative);padding-block:24px 48px}
+.stage-band{background:var(--color-background-alternative);padding:64px 24px 96px}
 .stage-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}
 .fit{position:relative;width:100%;overflow:hidden}
 .fit.car-view{border-radius:6px}
@@ -468,18 +467,10 @@ footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items
 </style>
 </head>
 <body class="safecar-page" data-brand="design"><script>try{const t=localStorage.getItem("rl-theme");if(t==="dark"||t==="light")document.body.dataset.theme=t}catch(e){}</script><header class="navbar"></header><main>
-<header class="band top">
-  <div class="in">
-    <div>
-      <div class="wordmark" aria-label="safecar">
-        <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 L27 6 V15 C27 22 21.5 26.5 15 28.5 C8.5 26.5 3 22 3 15 V6 Z" fill="#00b4ff"/><path d="M9.5 15.5 L13.5 19.5 L21 11.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        safecar
-      </div>
-      <h1>Safecar · Car-as-a-Service</h1>
-    </div>
-    <span class="label">Safecar · Multimídia, Mobile e Watch</span>
-  </div>
-</header>
+<section class="page-main" aria-labelledby="safecar-title">
+  <p class="page-main-overline">GETRAK SAFECAR</p>
+  <h1 class="page-main-title" id="safecar-title">Safecar · Car-as-a-Service</h1>
+</section>
 
 <section class="band stage-band" aria-label="Protótipo">
   <div class="in">
