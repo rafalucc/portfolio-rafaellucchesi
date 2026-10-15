@@ -727,7 +727,7 @@ function rota(s){
   <div class="a" style="left:0;top:652px;width:1280px;height:148px;display:grid;grid-template-columns:1fr 1fr">
     ${s.route
       ? `<button class="hs" data-act="encerrar" style="background:#000;text-align:center;font-size:36px;font-weight:700">ENCERRAR ROTA</button>
-         <button class="hs" data-act="home" style="background:#4a9ff5;text-align:center;font-size:36px;font-weight:700">VOLTAR AO MAPA</button>`
+         <button class="hs" data-act="home" style="background:#4a9ff5;text-align:center;font-size:36px;font-weight:700">BACK TO MAP</button>`
       : `<button class="hs" data-act="home" style="background:#000;text-align:center;font-size:36px;font-weight:700">CANCELAR</button>
          <button class="hs" data-act="iniciar" style="background:#4a9ff5;text-align:center;font-size:36px;font-weight:700">INICIAR</button>`}
   </div>`;
@@ -771,7 +771,7 @@ function modal(s){
       ${k==='postos'?`<div style="display:flex;gap:16px;padding:0 18px 22px"><span class="price">Gasolina<b>R$ 3,19</b></span><span class="price">Etanol<b>R$ 2,21</b></span></div>`:''}
       <div class="perk">${I.check('#5d8f12',30)}${N.perk}</div>
       ${k==='pecas'
-        ?`<div class="btns3"><button class="hs" data-act="close" style="color:#888">Close</button><button class="hs" data-act="ir" style="color:#00a6eb">Get directions</button><button class="hs" data-act="toast:Calling ${it.n}…" style="color:#00a6eb">Ligar</button></div>`
+        ?`<div class="btns3"><button class="hs" data-act="close" style="color:#888">Close</button><button class="hs" data-act="ir" style="color:#00a6eb">Get directions</button><button class="hs" data-act="toast:Calling ${it.n}…" style="color:#00a6eb">Call</button></div>`
         :k==='oficinas'
         ?`<div class="btns3"><button class="hs" data-act="close" style="color:#888">Close</button><button class="hs" data-act="ir" style="color:#00a6eb">Get directions</button><button class="hs" data-act="agendar" style="color:#00a6eb">Schedule</button></div>`
         :`<div class="btns2"><button class="hs" data-act="close" style="color:#888">Close</button><button class="hs" data-act="ir" style="color:#00a6eb">Get directions</button></div>`}`);
@@ -817,8 +817,8 @@ function rastreio(s){
   <div class="a stat" style="left:640px;top:558px;width:320px;height:94px"><div class="v">${A.arr}</div><div class="k cy">Arrival</div></div>
   <div class="a stat" style="left:960px;top:460px;width:320px;height:192px"><div class="big" style="font-size:80px">${A.tm}</div><div class="cy" style="font-size:20px">Tempo</div></div>
   <div class="a" style="left:0;top:652px;width:1280px;height:148px;display:grid;grid-template-columns:1fr 1fr">
-    <button class="hs" data-act="cancelarAssist" style="background:#000;text-align:center;font-size:36px;font-weight:700">CANCELAR PEDIDO</button>
-    <button class="hs" data-act="home" style="background:#4a9ff5;text-align:center;font-size:36px;font-weight:700">VOLTAR AO MAPA</button>
+    <button class="hs" data-act="cancelarAssist" style="background:#000;text-align:center;font-size:36px;font-weight:700">CANCEL REQUEST</button>
+    <button class="hs" data-act="home" style="background:#4a9ff5;text-align:center;font-size:36px;font-weight:700">BACK TO MAP</button>
   </div>`;
 }
 
@@ -1009,7 +1009,7 @@ const FLOW=[
  {k:'estac',n:'Parking network',d:'Partner parking locations with charges paid directly by card.',st:{screen:'estac'}},
  {k:'oficinas',n:'Repair shop network',d:'Partner shops for servicing, repairs and inspections.',st:{screen:'oficinas'}},
  {k:'pecas',n:'Auto parts network',d:'Partner auto parts stores with in-store or online purchases.',st:{screen:'pecas'}},
- {k:'item',n:'Detalhe do parceiro',d:'Address, card benefit and shortcuts to directions or booking.',st:{screen:'oficinas',modal:'item',pick:0}},
+ {k:'item',n:'Partner details',d:'Address, card benefit and shortcuts to directions or booking.',st:{screen:'oficinas',modal:'item',pick:0}},
  {k:'agenda',n:'Appointment',d:'Inspection date and time, with fully booked days marked.',st:{screen:'agenda'}},
 ];
 function matches(k){const f=FLOW.find(x=>x.k===k);if(!f)return false;const st={...init,...f.st};return st.screen===S.screen&&st.modal===S.modal;}
@@ -1061,7 +1061,7 @@ function m_inicio(s){
   <button class="a hs mstrip" style="left:0;top:79px;width:375px;height:70px" data-act="${s.assistActive?'rastreio':'rota'}" aria-label="${s.assistActive?'Track assistance':'Plan route'}">
     ${s.assistActive
       ?`<div class="mlbl" style="color:#f2a20c">Assistance on the way · arrival ${A.arr}</div><div class="maddr">${A.short} ${A.km} km away</div>`
-      :`<div class="mlbl">${s.route?`<span style="color:#16c4d8">A caminho · chegada ${R.arr}</span>`:'Agora'}</div><div class="maddr">${s.route?(s.dest||DEST):NOW}</div>`}
+      :`<div class="mlbl">${s.route?`<span style="color:#16c4d8">On the way · arrival ${R.arr}</span>`:'Now'}</div><div class="maddr">${s.route?(s.dest||DEST):NOW}</div>`}
   </button>
   <div class="a mstats" style="left:0;top:149px;width:375px;height:62px">
     <div class="mcell"><span class="big">42km</span><span class="k">Total percorrido</span></div>
@@ -1146,7 +1146,7 @@ function m_rota(s){
     <circle cx="40" cy="150" r="8" fill="#e8262f" stroke="#fff" stroke-width="3"/><circle cx="335" cy="52" r="8" fill="#7dbb12" stroke="#fff" stroke-width="3"/></svg>`;
   return `${MHD(MBACK(),'<span>Route planning</span>')}
   <div class="a mbody" style="bottom:56px;display:flex;flex-direction:column">
-    <div class="mblock"><div class="mlbl">Agora</div><div class="maddr">${NOW}</div></div>
+    <div class="mblock"><div class="mlbl">Now</div><div class="maddr">${NOW}</div></div>
     <div class="mblock" style="border-top:1px solid #2a2a2c"><div class="mlbl" style="display:flex;justify-content:space-between">Destino<span style="color:#fff">${R.arr}</span></div><div class="maddr">${s.dest||DEST}</div></div>
     <div style="position:relative;height:210px">${mmap(210,{car:false,over:route})}</div>
     <div class="mgrid3">
@@ -1159,7 +1159,7 @@ function m_rota(s){
     </div>
   </div>
   <div class="a mbar2">${s.route
-    ?`<button class="hs" data-act="encerrar" style="background:#000">ENCERRAR ROTA</button><button class="hs" data-act="home" style="background:#4a9ff5">VOLTAR AO MAPA</button>`
+    ?`<button class="hs" data-act="encerrar" style="background:#000">ENCERRAR ROTA</button><button class="hs" data-act="home" style="background:#4a9ff5">BACK TO MAP</button>`
     :`<button class="hs" data-act="home" style="background:#000">CANCELAR</button><button class="hs" data-act="iniciar" style="background:#4a9ff5">INICIAR</button>`}</div>`;
 }
 
@@ -1215,7 +1215,7 @@ function m_rastreio(s){
     <div class="a mpro" style="left:70px;top:372px">${proIcon}</div>
     <div class="a mchip" style="left:187.5px;top:${cy-26}px">Your car</div></div>
   <button class="a hs mpill" style="left:16px;top:611px" data-act="cancelarAssist">Cancel pedido</button>
-  <button class="a hs mfab" style="left:303px;top:595px;background:#fff" data-act="toast:Calling o prestador…" aria-label="Ligar para o prestador">${PHONE('#7dbb12',28)}</button>`;
+  <button class="a hs mfab" style="left:303px;top:595px;background:#fff" data-act="toast:Calling o prestador…" aria-label="Call para o prestador">${PHONE('#7dbb12',28)}</button>`;
 }
 
 function m_modal(s){
@@ -1269,7 +1269,7 @@ function m_modal(s){
     const k=s.screen,N=NETS[k],it=N.items[s.pick];
     const B=[`<button class="hs ghost" data-act="close">Close</button>`,`<button class="hs" data-act="ir">Get directions</button>`];
     if(k==='oficinas')B.push(`<button class="hs" data-act="agendar">Schedule</button>`);
-    if(k==='pecas')B.push(`<button class="hs" data-act="toast:Calling ${it.n}…">Ligar</button>`);
+    if(k==='pecas')B.push(`<button class="hs" data-act="toast:Calling ${it.n}…">Call</button>`);
     return `${DIM}<div class="a msheet up" role="dialog"><span class="grab"></span>
       <div class="mttl" style="padding-top:8px"><b style="font-size:19px;font-weight:700;color:#444">${it.n}</b>${X}</div>
       <div class="msi">${N.noLogo?'':LOGO(k,s.pick,58)}<div>${it.a}<br>${TEL}<br><b style="color:#333">${it.km} km away</b></div></div>
@@ -1376,7 +1376,7 @@ const FLOWM=[
  {k:'estac',n:'Parking network',d:'Parking fees paid directly by card.',st:{screen:'estac'}},
  {k:'oficinas',n:'Repair shop network',d:'Maintenance, repairs and inspection.',st:{screen:'oficinas'}},
  {k:'pecas',n:'Auto parts network',d:'Partner stores, with directions and calling options.',st:{screen:'pecas'}},
- {k:'item',n:'Detalhe do parceiro',d:'Address, benefit and shortcuts in a bottom sheet.',st:{screen:'oficinas',modal:'item',pick:0}},
+ {k:'item',n:'Partner details',d:'Address, benefit and shortcuts in a bottom sheet.',st:{screen:'oficinas',modal:'item',pick:0}},
  {k:'agenda',n:'Appointment',d:'Inspection date and time.',st:{screen:'agenda'}},
 ];
 function mMatches(k){const f=FLOWM.find(x=>x.k===k);if(!f)return false;const st={...MINIT,...f.st};return st.screen===M.screen&&st.modal===M.modal;}
@@ -1408,7 +1408,7 @@ function w_inicio(s){
     <button class="hs wbtn" data-act="assist" aria-label="Request roadside assistance"><span class="c" style="background:#f74b63">${I.headset('#fff',34)}</span><span class="l">Roadside assistance</span></button>
   </div>
   ${s.assistActive?'':`<div class="a wwhere" aria-label="Your car is at Av. das Américas, 4.200, Gutierrez"><b><svg width="10" height="12" viewBox="0 0 10 12"><path d="M5 0a5 5 0 0 1 5 5c0 3.6-5 7-5 7S0 8.6 0 5a5 5 0 0 1 5-5zm0 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" fill="#00b4ff"/></svg>Av. das Américas, 4.200</b><span>Gutierrez · CEP 33210-34</span></div>`}
-  ${s.assistActive?`<button class="a hs wpill" data-act="rastreio">${CLOCK('#f2a20c',14)}<span style="white-space:nowrap">A caminho · <b class="wt">${wMM(wLeft(s))}</b></span></button>`:''}`;
+  ${s.assistActive?`<button class="a hs wpill" data-act="rastreio">${CLOCK('#f2a20c',14)}<span style="white-space:nowrap">On the way · <b class="wt">${wMM(wLeft(s))}</b></span></button>`:''}`;
 }
 function w_rastreio(s){
   const A=AS(s),sc=.75,CX=132,CY=96,ox=CX-640*sc,oy=CY-172*sc,PX=48,PY=148;
@@ -1420,7 +1420,7 @@ function w_rastreio(s){
     <div class="a" style="left:0;top:0;width:198px;height:78px;z-index:5;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 38%,rgba(0,0,0,0) 100%)"></div>
     <div class="a wtop"><button class="hs wback" data-act="home" aria-label="Back"><b>‹</b>Map</button>${WCLOCK}</div>
     <div class="a wmapbar"><div><span class="tm" id="wtimer">${wMM(wLeft(s))}</span><small>Prestador EJQ-1578</small></div>
-      <button class="hs wcall" data-act="toast:Calling o prestador…" aria-label="Ligar para o prestador">${PHONE('#fff',18)}</button></div>`;
+      <button class="hs wcall" data-act="toast:Calling o prestador…" aria-label="Call para o prestador">${PHONE('#fff',18)}</button></div>`;
 }
 function w_modal(s){
   const m=s.modal;if(!m)return '';
