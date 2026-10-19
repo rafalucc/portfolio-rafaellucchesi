@@ -10,7 +10,7 @@
 .art-project-title{font:500 clamp(40px,5vw,64px)/1.05 var(--font-heading);letter-spacing:var(--typography-display-letter-spacing);color:var(--color-heading);text-transform:uppercase;margin:0}
 .art-project-desc{font-size:var(--typography-body-size);max-width:800px;line-height:1.35;margin:0}
 .art-project-viewer{width:100%;background:var(--color-background-alternative);position:relative;min-height:400px;height:min(78vh,900px)}
-.art-project-viewer iframe{width:100%;height:100%;border:0;display:block;background:#e9e8e4}
+.voa-loading{display:grid;place-items:center;width:100%;height:100%;min-height:300px;text-align:center;padding:24px;color:var(--color-body)}.art-project-viewer iframe{width:100%;height:100%;border:0;display:block;background:#e9e8e4}
 .art-project-actions{display:flex;gap:var(--spacing-4);flex-wrap:wrap;align-items:center}
 .art-project-note{font-size:16px;color:var(--color-body);margin:0}
 @media(min-width:1280px){.art-project-main{gap:var(--spacing-18);padding:var(--spacing-24) var(--spacing-39)}}
@@ -19,8 +19,8 @@
 <header class="navbar"></header>
 <main class="art-project-main">
 <header class="art-project-header"><p class="art-project-overline">PROJECTS / DÉCIO NOVIELLO AWARD</p><h1 class="art-project-title">Décio Noviello Award</h1><p class="art-project-desc">A 3D exhibition concept. Explore the virtual gallery in 3D. Drag to look around and use the viewer controls to move through the exhibition.</p></header>
-<div class="art-project-viewer"><iframe title="V.O.A. — interactive 3D exhibition" src="/arte/projetos/premio-decio-noviello/3d/" allow="fullscreen" allowfullscreen loading="eager"></iframe></div>
+<div class="art-project-viewer" id="voa-viewer"><div class="voa-loading" id="voa-loading" role="status">3D exhibition viewer — awaiting upload of the original gallery files.</div><iframe id="voa-iframe" title="V.O.A. — interactive 3D exhibition" data-src="/arte/projetos/premio-decio-noviello/3d/" allow="fullscreen" allowfullscreen loading="eager" hidden></iframe></div>
 <div class="art-project-actions"><a class="button button--secondary" href="/arte/projetos/premio-decio-noviello/3d/" target="_blank" rel="noopener noreferrer">open full-screen 3D ↗</a><a class="button button--tertiary" href="/en/arte/projetos/">all projects</a></div>
 <p class="art-project-note">If the visualization does not load, open it in a new tab.</p>
-</main><footer class="footer"></footer><script src="/assets/js/components.js"></script>
+</main><footer class="footer"></footer><script>(async()=>{const frame=document.getElementById('voa-iframe'),loading=document.getElementById('voa-loading'),url=frame.dataset.src;try{const r=await fetch(url+'index.html',{method:'HEAD',cache:'no-store'});if(!r.ok)return;frame.src=url;frame.hidden=false;loading.hidden=true;}catch(e){}})();</script><script src="/assets/js/components.js"></script>
 </body></html>
