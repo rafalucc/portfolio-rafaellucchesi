@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projetos — Rafael Lucchesi, Artista</title><meta name="description" content="Projetos de arte, instalações e experiências de Rafael Lucchesi.">
+<link rel="icon" type="image/svg+xml" href="/assets/images/home/logo-symbol.svg"><script src="/assets/js/favicon.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/tokens/tokens.css"><link rel="stylesheet" href="/assets/css/components/components.css">
+<style>
+.projects-main{max-width:1920px;margin:0 auto;padding:var(--spacing-12) var(--spacing-6) var(--spacing-24);width:100%}
+.projects-heading{display:flex;flex-direction:column;gap:var(--spacing-6);margin-bottom:var(--spacing-12)}
+.projects-overline{margin:0;font:500 var(--typography-overline-size) var(--font-body);letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-body)}
+.projects-title{margin:0;color:var(--color-heading);font:500 var(--typography-display-size)/1 var(--font-heading);letter-spacing:var(--typography-display-letter-spacing);text-transform:uppercase}
+.project-card{display:grid;background:var(--color-background-alternative);min-height:340px;grid-template-columns:1fr}
+.project-info{padding:var(--spacing-6);display:flex;flex-direction:column;gap:var(--spacing-6);align-items:flex-start;justify-content:center}
+.project-info h2{margin:0;font:500 var(--typography-h1-size)/1.1 var(--font-heading);letter-spacing:var(--typography-h1-letter-spacing);color:var(--color-heading);text-transform:uppercase}
+.project-info p{margin:0;max-width:56ch;color:var(--color-body)}
+.project-art{min-height:280px;background:var(--color-background);display:grid;place-items:center;position:relative;overflow:hidden}
+.project-art:before{content:"V.O.A.";font:500 clamp(90px,17vw,260px)/1 var(--font-heading);letter-spacing:-.06em;color:var(--color-primary);opacity:.15}
+.project-art span{position:absolute;bottom:var(--spacing-6);left:var(--spacing-6);font:500 12px var(--font-body);letter-spacing:4px;text-transform:uppercase;color:var(--color-body)}
+@media(min-width:1280px){.projects-main{padding:var(--spacing-24) var(--spacing-39)}.project-card{grid-template-columns:1fr 1fr}.project-info{padding:var(--spacing-12)}.projects-heading{margin-bottom:var(--spacing-18)}}
+</style></head>
+<body data-brand="arte"><script>try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}</script>
+<header class="navbar"></header>
+<main class="projects-main"><div class="projects-heading"><p class="projects-overline">arte</p><h1 class="projects-title">projetos</h1></div>
+<article class="project-card"><div class="project-info"><p class="projects-overline">V.O.A. / 3D</p><h2>Prêmio Décio Noviello</h2><p>Projeto V.O.A. — Volte-se, Observe-se e Aprenda. Simulação tridimensional da exposição.</p><a class="button button--secondary" href="/arte/projetos/premio-decio-noviello/">ver projeto</a></div>
+<a href="/arte/projetos/premio-decio-noviello/" class="project-art" aria-label="Prêmio Décio Noviello — ver projeto"><span>V.O.A. · 3D</span></a></article></main>
+<footer class="footer"></footer><script src="/assets/js/components.js"></script></body></html>
