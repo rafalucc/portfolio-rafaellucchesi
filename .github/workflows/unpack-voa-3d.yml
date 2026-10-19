@@ -1,0 +1,39 @@
+name: Unpack V.O.A. 3D assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/unpack-voa-3d.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Extract V.O.A. files to expected directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd arte/projetos/premio-decio-noviello
+          test -f premio-decio-noviello-3d-upload.zip
+          unzip -Z -1 premio-decio-noviello-3d-upload.zip | grep -q '^3d/index.html$'
+          unzip -Z -1 premio-decio-noviello-3d-upload.zip | grep -q '^3d/texturas/PIR.jpg$'
+          unzip -o -q premio-decio-noviello-3d-upload.zip '3d/*'
+          test -f 3d/index.html
+          test -f 3d/texturas/PIR.jpg
+          test -f 3d/texturas/LOGOA.png
+      - name: Commit extracted gallery and textures
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add arte/projetos/premio-decio-noviello/3d/
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: publish V.O.A. 3D textures from uploaded ZIP"
+            git push origin HEAD:main
+          fi
