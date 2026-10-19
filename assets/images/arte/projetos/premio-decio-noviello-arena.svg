@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t d">
+<title id="t">V.O.A. — Vista da Arena, núcleo Observe-se</title>
+<desc id="d">Composição estática inspirada na simulação 3D: galeria de paredes douradas, polípticos dispostos em arco e palco circular de cobre ao centro.</desc>
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#9c5422"/><stop offset=".45" stop-color="#bc7b37"/><stop offset="1" stop-color="#52210e"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c4a081"/><stop offset=".38" stop-color="#a97b5e"/><stop offset="1" stop-color="#3c231b"/></linearGradient>
+<radialGradient id="light" cx=".50" cy=".25" r=".7"><stop stop-color="#ffa651" stop-opacity=".72"/><stop offset=".6" stop-color="#b84320" stop-opacity=".1"/><stop offset="1" stop-color="#27130e" stop-opacity=".7"/></radialGradient>
+<radialGradient id="stage" cx=".3" cy=".12" r="1"><stop stop-color="#ffbd63"/><stop offset=".55" stop-color="#af3a15"/><stop offset="1" stop-color="#38120d"/></radialGradient>
+<clipPath id="left-paint"><path d="M98 206 567 265 567 501 98 575Z"/></clipPath>
+<clipPath id="right-paint"><path d="M713 265 1182 206 1182 575 713 501Z"/></clipPath>
+<filter id="glow"><feGaussianBlur stdDeviation="28"/></filter>
+<filter id="shadow"><feGaussianBlur stdDeviation="16"/></filter>
+</defs>
+<rect width="1280" height="720" fill="#251610"/>
+<path d="M0 0H1280V187L713 267H567L0 187Z" fill="#2c231b"/>
+<path d="M0 145 567 265 567 501 0 651Z" fill="url(#wall)"/>
+<path d="M1280 145 713 265 713 501 1280 651Z" fill="url(#wall)"/>
+<path d="M567 265H713V501H567Z" fill="#763a20"/>
+<path d="M0 651 567 501H713L1280 651V720H0Z" fill="url(#floor)"/>
+<path d="M0 145 567 265 713 265 1280 145" fill="none" stroke="#e2a15b" stroke-width="10" opacity=".7"/>
+<g clip-path="url(#left-paint)">
+<image x="72" y="205" width="590" height="385" preserveAspectRatio="xMidYMid slice" href="/arte/projetos/premio-decio-noviello/3d/texturas/F.jpg"/>
+</g>
+<g clip-path="url(#right-paint)">
+<image x="665" y="205" width="590" height="385" preserveAspectRatio="xMidYMid slice" href="/arte/projetos/premio-decio-noviello/3d/texturas/F2.jpg"/>
+</g>
+<path d="M98 206 567 265V501L98 575Z M713 265 1182 206V575L713 501Z" fill="none" stroke="#20120c" stroke-width="12"/>
+<g stroke="#dc9046" stroke-width="3" opacity=".7">
+<path d="M204 220V558M310 234V543M417 249V525M518 260V508M762 260V508M862 249V525M970 234V543M1076 220V558"/>
+</g>
+<ellipse cx="640" cy="642" rx="325" ry="60" fill="#160d0a" opacity=".7" filter="url(#shadow)"/>
+<ellipse cx="640" cy="609" rx="320" ry="97" fill="#451914"/>
+<ellipse cx="640" cy="595" rx="322" ry="95" fill="url(#stage)" stroke="#e1a15e" stroke-width="5"/>
+<ellipse cx="640" cy="590" rx="116" ry="34" fill="#fff0b1" opacity=".28" filter="url(#glow)"/>
+<path d="M640 540V445" stroke="#e7d7c3" stroke-width="7"/>
+<ellipse cx="640" cy="542" rx="37" ry="9" fill="#3e302b"/>
+<rect x="632" y="420" width="16" height="35" rx="8" fill="#363536"/>
+<circle cx="640" cy="411" r="20" fill="#b3aa9a"/>
+<path d="M96 205Q640 70 1184 205" fill="none" stroke="#dfab66" stroke-width="5" opacity=".85"/>
+<path d="M200 0 320 195M420 0 495 243M640 0V260M860 0 785 243M1080 0 960 195" stroke="#a99f8f" stroke-width="7" opacity=".55"/>
+<ellipse cx="640" cy="326" rx="300" ry="130" fill="#e36a27" opacity=".12" filter="url(#glow)"/>
+<rect width="1280" height="720" fill="url(#light)" style="pointer-events:none"/>
+</svg>
