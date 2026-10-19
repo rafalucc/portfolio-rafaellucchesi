@@ -14,13 +14,13 @@
 .project-info h2{margin:0;font:500 var(--typography-h1-size)/1.1 var(--font-heading);letter-spacing:var(--typography-h1-letter-spacing);color:var(--color-heading);text-transform:uppercase}
 .project-info p{margin:0;max-width:56ch;color:var(--color-body)}
 .project-art{min-height:280px;background:var(--color-background);display:grid;place-items:center;position:relative;overflow:hidden}
-.project-art:before{content:"V.O.A.";font:500 clamp(90px,17vw,260px)/1 var(--font-heading);letter-spacing:-.06em;color:var(--color-primary);opacity:.15}
-.project-art span{position:absolute;bottom:var(--spacing-6);left:var(--spacing-6);font:500 12px var(--font-body);letter-spacing:4px;text-transform:uppercase;color:var(--color-body)}
+.project-art img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center}
+.project-art span{position:absolute;bottom:var(--spacing-6);left:var(--spacing-6);font:500 12px var(--font-body);letter-spacing:4px;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.55);padding:8px 12px}
 @media(min-width:1280px){.projects-main{padding:var(--spacing-24) var(--spacing-39)}.project-card{grid-template-columns:1fr 1fr}.project-info{padding:var(--spacing-12)}.projects-heading{margin-bottom:var(--spacing-18)}}
 </style></head>
 <body data-brand="arte"><script>try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}</script>
 <header class="navbar"></header>
 <main class="projects-main"><div class="projects-heading"><p class="projects-overline">art</p><h1 class="projects-title">projects</h1></div>
 <article class="project-card"><div class="project-info"><p class="projects-overline">V.O.A. / 3D</p><h2>Décio Noviello Award</h2><p>V.O.A. — Turn Inward, Observe, Learn. 3D exhibition concept.</p><a class="button button--secondary" href="/en/arte/projetos/premio-decio-noviello/">view project</a></div>
-<a href="/en/arte/projetos/premio-decio-noviello/" class="project-art" aria-label="Décio Noviello Award — view project"><span>V.O.A. · 3D</span></a></article></main>
+<a href="/en/arte/projetos/premio-decio-noviello/" class="project-art" aria-label="Décio Noviello Award — view project"><img src="/assets/images/arte/projetos/premio-decio-noviello-arena.webp" alt="Visão da Arena da exposição V.O.A. em 3D" loading="lazy" decoding="async"><span>V.O.A. · 3D</span></a></article></main>
 <footer class="footer"></footer><script src="/assets/js/components.js"></script></body></html>
