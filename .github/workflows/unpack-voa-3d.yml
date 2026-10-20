@@ -1,39 +1,65 @@
-name: Unpack V.O.A. 3D assets
+name: Publish V.O.A. 3D package
 on:
   push:
     branches: [main]
     paths:
-      - .github/workflows/unpack-voa-3d.yml
+      - 'arte/projetos/premio-decio-noviello/voa-3d-site.zip'
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: publish-voa-3d
+  cancel-in-progress: false
 jobs:
-  unpack:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Extract V.O.A. files to expected directory
+      - name: Validate and extract complete 3D package
         shell: bash
         run: |
           set -euo pipefail
-          cd arte/projetos/premio-decio-noviello
-          test -f premio-decio-noviello-3d-upload.zip
-          unzip -Z -1 premio-decio-noviello-3d-upload.zip | grep -q '^3d/index.html$'
-          unzip -Z -1 premio-decio-noviello-3d-upload.zip | grep -q '^3d/texturas/PIR.jpg$'
-          unzip -o -q premio-decio-noviello-3d-upload.zip '3d/*'
-          test -f 3d/index.html
-          test -f 3d/texturas/PIR.jpg
-          test -f 3d/texturas/LOGOA.png
-      - name: Commit extracted gallery and textures
+          python3 - <<'PY'
+          import zipfile, pathlib, shutil
+          project = pathlib.Path('arte/projetos/premio-decio-noviello')
+          archive = project / 'voa-3d-site.zip'
+          destination = project / '3d'
+          required = ['index.html', 'texturas/L1F.jpg', 'texturas/L2F.jpg',
+                      'texturas/L3F.jpg', 'texturas/L1B.jpg', 'texturas/L3B.jpg',
+                      'texturas/PIR.jpg', 'texturas/LOGOA.png']
+          with zipfile.ZipFile(archive) as z:
+              members = {p.filename.removeprefix('voa-3d/'): p for p in z.infolist()
+                         if p.filename.startswith('voa-3d/') and not p.is_dir()}
+              missing = [name for name in required if name not in members]
+              if missing:
+                  raise SystemExit('Missing new 3D assets: ' + ', '.join(missing))
+              # Validate all paths before writing anything to disk
+              for name in members:
+                  pp = pathlib.PurePosixPath(name)
+                  if pp.is_absolute() or '..' in pp.parts or pp.suffix.lower() not in ('.html','.jpg','.jpeg','.png','.txt'):
+                      raise SystemExit('Unexpected archive entry: '+name)
+              destination.mkdir(parents=True,exist_ok=True)
+              for name, info in members.items():
+                  target=destination.joinpath(*pathlib.PurePosixPath(name).parts)
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  with z.open(info) as stream, target.open('wb') as out:
+                      shutil.copyfileobj(stream,out)
+          # Older face files are no longer referenced by the new viewer.
+          for old in ['texturas/L1.jpg','texturas/L3.jpg']:
+              (destination / old).unlink(missing_ok=True)
+          print('Extracted',len(members),'files from',archive)
+          PY
+      - name: Publish updated viewer and textures
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add arte/projetos/premio-decio-noviello/3d/
+          git add -A arte/projetos/premio-decio-noviello/3d/
           if ! git diff --cached --quiet; then
-            git commit -m "feat: publish V.O.A. 3D textures from uploaded ZIP"
+            git commit -m "feat: update Prêmio Décio Noviello V.O.A. 3D exhibition"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
