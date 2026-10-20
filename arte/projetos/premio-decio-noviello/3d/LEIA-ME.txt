@@ -1,0 +1,16 @@
+V.O.A. — Simulação 3D
+=====================
+
+Como subir no site
+1. Envie a pasta "voa-3d" inteira para a hospedagem do site, sem mudar nomes
+   nem separar os arquivos (o index.html precisa da pasta "texturas" ao lado).
+2. A simulação fica em:  https://SEUSITE.com/voa-3d/
+3. Para mostrá-la dentro de uma página do portfólio, use:
+   <iframe src="/voa-3d/" style="width:100%;height:80vh;border:0" allowfullscreen></iframe>
+
+Observações
+- Abrir o index.html direto do computador (dois cliques) não funciona bem:
+  o navegador bloqueia as texturas fora de um servidor. No site, funciona normalmente.
+- A biblioteca 3D (three.js) e as fontes são carregadas da internet (cdnjs e Google Fonts).
+- Para atualizar só uma obra, troque a imagem correspondente em "texturas"
+  mantendo o mesmo nome de arquivo.

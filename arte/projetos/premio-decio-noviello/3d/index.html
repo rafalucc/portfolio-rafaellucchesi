@@ -1,8 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>
-// Sync the immersive viewer theme with the portfolio.
-try { const t=localStorage.getItem('rl-theme'); if(t==='dark'||t==='light')document.documentElement.dataset.theme=t; } catch(e) {}
-window.addEventListener('message',function(e){if(e.origin===location.origin&&e.data&&e.data.type==='rl-theme'&&['light','dark'].includes(e.data.theme)){document.documentElement.dataset.theme=e.data.theme}});
-</script></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>V.O.A. em 3D</title>
 <style>
 /* Layout: viewer em tela cheia; HUD em vidro claro sobre a cena, barra de pontos de vista embaixo */
@@ -75,7 +71,7 @@ button:focus-visible{outline:2px solid var(--o);outline-offset:2px}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>const TEX={"L1B": "texturas/L1B.jpg", "L3B": "texturas/L3B.jpg", "LOGOA": "texturas/LOGOA.png", "LOGOO": "texturas/LOGOO.png", "LOGOV": "texturas/LOGOV.png", "LOGO": "texturas/LOGO.png", "DIVM": "texturas/DIVM.jpg", "DIVF": "texturas/DIVF.jpg", "SOL": "texturas/SOL.jpg", "PIR": "texturas/PIR.jpg", "L1": "texturas/L1.jpg", "L2": "texturas/L2.jpg", "L3": "texturas/L3.jpg", "AZN": "texturas/AZN.jpg", "AZS": "texturas/AZS.jpg", "AZ3": "texturas/AZ3.jpg", "DR": "texturas/DR.jpg", "C": "texturas/C.jpg", "F": "texturas/F.jpg", "BV": "texturas/BV.jpg", "F2": "texturas/F2.jpg"};</script>
+<script>const TEX={"L1B": "texturas/L1B.jpg", "L3B": "texturas/L3B.jpg", "LOGOA": "texturas/LOGOA.png", "LOGOO": "texturas/LOGOO.png", "LOGOV": "texturas/LOGOV.png", "LOGO": "texturas/LOGO.png", "DIVM": "texturas/DIVM.jpg", "DIVF": "texturas/DIVF.jpg", "SOL": "texturas/SOL.jpg", "PIR": "texturas/PIR.jpg", "L2": "texturas/L2.jpg", "AZN": "texturas/AZN.jpg", "AZS": "texturas/AZS.jpg", "AZ3": "texturas/AZ3.jpg", "DR": "texturas/DR.jpg", "C": "texturas/C.jpg", "F": "texturas/F.jpg", "BV": "texturas/BV.jpg", "F2": "texturas/F2.jpg", "L1F": "texturas/L1F.jpg", "L2F": "texturas/L2F.jpg", "L3F": "texturas/L3F.jpg"};</script>
 <script>
 (function(){
 const app=document.getElementById('app');
@@ -856,13 +852,13 @@ const CLOTHS=[ // [x, z, giro, largura, trecho no piso, textura] — como na ref
         pos.push(x,p[0]+ny*d+(onFloor?0.014:0),p[1]+nz*d); uv.push(1-u,v);}});
     for(let i=0;i<P.length-1;i++) for(let j=0;j<NX;j++){const a=i*(NX+1)+j, b=a+NX+1; idx.push(a,b,a+1,a+1,b,b+1);}
     const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3)); g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2)); g.setIndex(idx); g.computeVertexNormals();
-    const mat=new THREE.MeshStandardMaterial({map:tx(TEX[tk]),roughness:0.92,metalness:0,side:THREE.BackSide});   // face voltada para a entrada
+    const mat=new THREE.MeshStandardMaterial({map:tx(TEX[tk+'F']),roughness:0.92,metalness:0,side:THREE.BackSide});   // face voltada para a entrada
     const grp=new THREE.Group(); grp.position.set(x,0,z); grp.rotation.y=yaw; scene.add(grp);
     const cloth=new THREE.Mesh(g,mat); grp.add(cloth);
     {const gb=g.clone(); const ub=gb.attributes.uv; for(let i=0;i<ub.count;i++) ub.setX(i,1-ub.getX(i));
      const back=new THREE.Mesh(gb,new THREE.MeshStandardMaterial({map:tx(TEX[{L1:'L1B',L2:'L2',L3:'L3B'}[tk]]),roughness:0.92,metalness:0,side:THREE.FrontSide})); grp.add(back);
-     back.userData.cap=['Pano · verso','A · vista de trás também lê V · O · A']; arts.push(back);}
-    cloth.userData.cap=['Pano de veludo '+(ci+1)+' de 3','A · '+['Volte-se','Observe-se','Aprenda'][[1,0,2][ci]]+' · veludo de teatro com os dizeres em serigrafia amarela · '+w.toFixed(2).replace('.',',')+' m de largura, da treliça ao piso']; arts.push(cloth);
+     back.userData.cap=['Pano · verso','A · símbolo, nome e princípios em serigrafia amarela, com ilustrações no topo e no rodapé · vista de trás também lê V · O · A']; arts.push(back);}
+    cloth.userData.cap=['Pano de veludo '+(ci+1)+' de 3','A · '+['Volte-se','Observe-se','Aprenda'][[1,0,2][ci]]+' · frente: símbolo e nome, com ilustrações no topo e no rodapé, em serigrafia amarela sobre veludo de teatro · '+w.toFixed(2).replace('.',',')+' m de largura, da treliça ao piso']; arts.push(cloth);
     // rolo no fim do pano e a barra de suspensão na treliça
     const roll=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,w,20),new THREE.MeshStandardMaterial({color:'#5a0d14',roughness:0.92})); roll.rotation.z=Math.PI/2; roll.position.set(0,0.06,R+Lf); grp.add(roll);
     const rod=new THREE.Mesh(new THREE.BoxGeometry(w+0.08,0.025,0.025),rodM); rod.position.set(0,PD-0.012,0); grp.add(rod);});
