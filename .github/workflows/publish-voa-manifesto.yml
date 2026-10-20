@@ -1,0 +1,56 @@
+name: Publish V.O.A. manifesto
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'arte/manifesto-voa.zip'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-voa-manifesto
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate and publish manifesto site
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib, shutil, zipfile
+          root=pathlib.Path('arte')
+          archive=root/'manifesto-voa.zip'
+          dest=root/'voa'
+          prefix='manifesto-voa/'
+          with zipfile.ZipFile(archive) as z:
+              files={p.filename[len(prefix):]:p for p in z.infolist() if p.filename.startswith(prefix) and not p.is_dir()}
+              required={'index.html','assets/css/style.css','assets/fonts/RL7Manuscrita.woff','assets/img/ilustracao-topo.svg','assets/img/ilustracao-rodape.svg','assets/img/simbolo-v.svg','assets/img/simbolo-o.svg','assets/img/simbolo-a.svg'}
+              missing=required-set(files)
+              if missing:raise SystemExit('Missing manifesto files: '+', '.join(sorted(missing)))
+              for name, entry in files.items():
+                  parts=pathlib.PurePosixPath(name)
+                  if parts.is_absolute() or '..' in parts.parts or parts.suffix.lower() not in ('.html','.css','.svg','.png','.woff','.ttf','.md','.txt'):
+                      raise SystemExit('Unsafe ZIP entry: '+name)
+              for name, entry in files.items():
+                  out=dest.joinpath(*pathlib.PurePosixPath(name).parts)
+                  out.parent.mkdir(parents=True,exist_ok=True)
+                  with z.open(entry) as a,out.open('wb') as b:shutil.copyfileobj(a,b)
+          print(f'Published {len(files)} manifesto files to {dest}')
+          PY
+      - name: Commit published manifesto
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A arte/voa/
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: publish V.O.A. manifesto webpage"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
