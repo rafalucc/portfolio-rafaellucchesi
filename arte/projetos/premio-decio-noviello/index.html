@@ -8,7 +8,7 @@
 .art-project-header{display:flex;flex-direction:column;gap:var(--spacing-6)}
 .art-project-overline{font-family:var(--font-body);font-size:var(--typography-overline-size);letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-body);margin:0}
 .art-project-title{font:500 clamp(40px,5vw,64px)/1.05 var(--font-heading);letter-spacing:var(--typography-display-letter-spacing);color:var(--color-heading);text-transform:uppercase;margin:0}
-.art-project-desc{font-size:var(--typography-body-size);max-width:800px;line-height:1.35;margin:0}
+.art-project-desc{font-size:var(--typography-body-size);max-width:800px;line-height:1.35;margin:0;text-align:justify}
 .art-project-viewer{width:100%;background:var(--color-background-alternative);position:relative;min-height:400px;height:min(78vh,900px)}
 .art-project-viewer iframe{width:100%;height:100%;border:0;display:block;background:#e9e8e4}
 .art-project-actions{display:flex;gap:var(--spacing-4);flex-wrap:wrap;align-items:center}
@@ -17,16 +17,22 @@
 
 .art-project-story{display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .art-project-story__intro{display:flex;flex-direction:column;gap:var(--spacing-6)}
-.art-project-story__intro .case-body{max-width:850px;text-align:left}
+.art-project-story__intro .case-body{max-width:850px;text-align:justify}
 .art-project-story .case-columns{width:100%}
 .art-project-story .case-col1,.art-project-story .case-col2{min-width:0}
-.art-project-story .case-body{text-align:left;line-height:1.65}
-.art-project-story .case-list{text-align:left;line-height:1.65;display:flex;flex-direction:column;gap:var(--spacing-3)}
+.art-project-story .case-body{text-align:justify;line-height:1.65}
+.art-project-story .case-list{text-align:justify;line-height:1.65;display:flex;flex-direction:column;gap:var(--spacing-3)}
 .art-project-story .case-list--ordered{list-style:decimal}
 .art-project-story .case-col2{gap:var(--spacing-8)}
 .art-project-fact{display:flex;flex-direction:column;gap:var(--spacing-2)}
-.art-project-fact dt{font-family:var(--font-body);font-size:var(--typography-overline-size);letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-heading);font-weight:700}
+.art-project-fact dt{font-family:var(--font-body);font-size:var(--typography-overline-size);letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-body);font-weight:500}
 .art-project-fact dd{margin:0;font-family:var(--font-body);font-size:var(--typography-body-size);line-height:1.45;color:var(--color-body)}
+.art-project-links{display:flex;flex-direction:column;gap:var(--spacing-3);margin-top:var(--spacing-10)}
+.art-project-links__title{margin:0 0 var(--spacing-3);font-family:var(--font-heading);font-size:24px;font-weight:500;color:var(--color-heading);text-transform:lowercase}
+.art-project-links__entry{display:flex;flex-direction:column;gap:var(--spacing-1)}
+.art-project-links__label{margin:0;font-family:var(--font-body);font-size:var(--typography-body-size);font-weight:var(--typography-body-weight);color:var(--color-body)}
+.art-project-links__list{list-style:disc;margin:0;padding-left:30px}
+.art-project-links__list a{font-family:var(--font-body);font-weight:400;font-size:18px;color:var(--color-link);text-decoration:underline;overflow-wrap:anywhere}
 .art-project-story .case-col2 dl{display:flex;flex-direction:column;gap:var(--spacing-8);margin:0}
 @media(min-width:1280px){.art-project-story{gap:var(--spacing-18)}}
 </style></head>
@@ -69,6 +75,13 @@
         <div class="art-project-fact"><dt>Obras</dt><dd>11 obras e conjuntos, em 76 peças, além de 300 cartas escritas à mão</dd></div>
         <div class="art-project-fact"><dt>Linguagens</dt><dd>Pintura, desenho, instalação, tecido e participação do público</dd></div>
       </dl>
+      <section class="art-project-links" aria-labelledby="voa-links-title">
+        <h3 class="art-project-links__title" id="voa-links-title">links úteis</h3>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Projeto Expográfico:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/1CDP1tJ9OJO1XfmVFPQItjMRKgABdRXqV/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">visualizar projeto expográfico ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Apresentação das obras:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/11ZRYgNElvUzUKGZSNxJR9CAajIvFe7iE/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">visualizar apresentação das obras ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Memorial Descritivo:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/1u5VVIOyrKSgDiATDg1DYGf86sDDXGi16/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">visualizar memorial descritivo ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Manifesto V. O. A.:</p><ul class="art-project-links__list"><li><a href="/arte/voa/">ler manifesto V. O. A. ↗</a></li></ul></div>
+      </section>
     </aside>
   </div>
 </section>
