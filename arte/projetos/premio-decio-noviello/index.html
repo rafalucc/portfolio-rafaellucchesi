@@ -2,7 +2,7 @@
 <title>Prêmio Décio Noviello — Rafael Lucchesi, Artista</title><meta name="description" content="V.O.A. — Volte-se, Observe-se e Aprenda. Proposta expositiva com simulação tridimensional navegável.">
 <link rel="icon" type="image/svg+xml" href="/assets/images/home/logo-symbol.svg"><script src="/assets/js/favicon.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/tokens/tokens.css"><link rel="stylesheet" href="/assets/css/components/components.css">
+<link rel="stylesheet" href="/assets/css/tokens/tokens.css"><link rel="stylesheet" href="/assets/css/components/components.css"><link rel="stylesheet" href="/assets/css/pages/case-hotmart.css">
 <style>
 .art-project-main{max-width:1920px;margin:0 auto;width:100%;padding:var(--spacing-12) var(--spacing-6);display:flex;flex-direction:column;gap:var(--spacing-12)}
 .art-project-header{display:flex;flex-direction:column;gap:var(--spacing-6)}
@@ -14,6 +14,21 @@
 .art-project-actions{display:flex;gap:var(--spacing-4);flex-wrap:wrap;align-items:center}
 .art-project-note{font-size:16px;color:var(--color-body);margin:0}
 @media(min-width:1280px){.art-project-main{gap:var(--spacing-18);padding:var(--spacing-24) var(--spacing-39)}}
+
+.art-project-story{display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.art-project-story__intro{display:flex;flex-direction:column;gap:var(--spacing-6)}
+.art-project-story__intro .case-body{max-width:850px;text-align:left}
+.art-project-story .case-columns{width:100%}
+.art-project-story .case-col1,.art-project-story .case-col2{min-width:0}
+.art-project-story .case-body{text-align:left;line-height:1.65}
+.art-project-story .case-list{text-align:left;line-height:1.65;display:flex;flex-direction:column;gap:var(--spacing-3)}
+.art-project-story .case-list--ordered{list-style:decimal}
+.art-project-story .case-col2{gap:var(--spacing-8)}
+.art-project-fact{display:flex;flex-direction:column;gap:var(--spacing-2)}
+.art-project-fact dt{font-family:var(--font-body);font-size:var(--typography-overline-size);letter-spacing:var(--typography-overline-letter-spacing);text-transform:uppercase;color:var(--color-heading);font-weight:700}
+.art-project-fact dd{margin:0;font-family:var(--font-body);font-size:var(--typography-body-size);line-height:1.45;color:var(--color-body)}
+.art-project-story .case-col2 dl{display:flex;flex-direction:column;gap:var(--spacing-8);margin:0}
+@media(min-width:1280px){.art-project-story{gap:var(--spacing-18)}}
 </style></head>
 <body data-brand="arte"><script>try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}</script>
 <header class="navbar"></header>
@@ -22,5 +37,44 @@
 <div class="art-project-viewer" id="voa-viewer"><iframe id="voa-iframe" title="V.O.A. — interactive 3D exhibition" src="/arte/projetos/premio-decio-noviello/3d/" allow="fullscreen" allowfullscreen loading="eager"></iframe></div>
 <div class="art-project-actions"><a class="button button--secondary" href="/arte/projetos/premio-decio-noviello/3d/" target="_blank" rel="noopener noreferrer">abrir 3D em tela cheia ↗</a><a class="button button--tertiary" href="/arte/projetos/">ver todos os projetos</a></div>
 <p class="art-project-note">Se a visualização não carregar, abra a simulação em uma nova aba.</p>
+
+<section class="art-project-story" aria-labelledby="voa-story-title">
+  <div class="art-project-story__intro">
+    <h2 class="case-h1" id="voa-story-title">V. O. A. — Volte-se, Observe-se e Aprenda</h2>
+    <p class="case-body">Uma exposição que transforma um manifesto pessoal em um percurso de três ambientes, para que pessoas atravessem, com o próprio corpo, uma jornada de crescimento.</p>
+  </div>
+  <div class="case-columns">
+    <div class="case-col1">
+      <section class="case-block" aria-labelledby="voa-memorial-title">
+        <h2 class="case-h2" id="voa-memorial-title">Memorial Descritivo</h2>
+        <p class="case-body">Tudo começa com o desafio de criar uma arte capaz de se comunicar com o subconsciente. Para tornar isso possível, princípios foram escritos em um manifesto. Ele serve para não perder de vista o que realmente importa em uma sociedade cada vez mais distraída pela superficialidade.</p>
+        <p class="case-body">Escrito em maio de 2023, o Manifesto V. O. A. funciona como um compromisso com a evolução pessoal e como base para construir uma cultura de crescimento. Dele surgem três valores:</p>
+        <ol class="case-list case-list--ordered">
+          <li>A profundidade mais que a superficialidade;</li>
+          <li>O desenvolvimento contínuo de habilidades mais que a autoafirmação de qualidades;</li>
+          <li>A vontade de aprender mais que o reconhecimento do talento.</li>
+        </ol>
+        <p class="case-body"><strong>Volte-se, Observe-se e Aprenda.</strong> A resposta foi transformar o título em caminho. A galeria se divide em três ambientes de 10,84 m, na ordem da sigla V. O. A., e cada um corresponde a uma etapa da jornada.</p>
+        <ul class="case-list">
+          <li><strong>V. — Volte-se:</strong> O olhar para dentro. Desacelerar, fazer uma pausa e reconhecer sentimentos, pensamentos e emoções, sem julgamentos;</li>
+          <li><strong>O. — Observe-se:</strong> O olhar para o mundo. Perceber como nossas atitudes afetam quem está ao redor, com empatia, respeito e equidade;</li>
+          <li><strong>A. — Aprenda:</strong> O caminho da transformação. Reconhecer que ninguém nasce pronto e que não precisamos ficar presos aos rótulos.</li>
+        </ul>
+        <p class="case-body">O nome guarda ainda um segundo sentido, deixado para o visitante descobrir: V.O.A. também se lê <em>voa</em>. Seja livre para voar.</p>
+      </section>
+    </div>
+    <aside class="case-col2" aria-label="Ficha técnica do projeto">
+      <h2 class="case-h2">Ficha técnica</h2>
+      <dl>
+        <div class="art-project-fact"><dt>Projeto</dt><dd>Exposição individual de artes visuais</dd></div>
+        <div class="art-project-fact"><dt>Espaço</dt><dd>Galeria Genesco Murta — Palácio das Artes, Belo Horizonte</dd></div>
+        <div class="art-project-fact"><dt>Edital</dt><dd>6º Prêmio Décio Noviello de Artes Visuais e Fotografia (FCS/APPA)</dd></div>
+        <div class="art-project-fact"><dt>Ano</dt><dd>2026</dd></div>
+        <div class="art-project-fact"><dt>Obras</dt><dd>11 obras e conjuntos, em 76 peças, além de 300 cartas escritas à mão</dd></div>
+        <div class="art-project-fact"><dt>Linguagens</dt><dd>Pintura, desenho, instalação, tecido e participação do público</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
 </main><footer class="footer"></footer><script src="/assets/js/components.js"></script>
 </body></html>
