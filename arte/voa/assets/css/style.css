@@ -6,7 +6,7 @@
   --amarelo:#ffbe00;
   --amarelo-texto:#f6b623;
   --amarelo-suave:rgba(255,190,0,.42);
-  --font-body:"EB Garamond",serif; --typography-body-weight:400;
+  --font-body:"EB Garamond",serif; --typography-body-size:20px; --typography-body-weight:400;
   --mao:"RL7 Manuscrita","Oswald","Arial Narrow",sans-serif;
   --t-over:16px; --t-h1:clamp(30px,5vw,44px); --t-body:clamp(15px,1.9vw,19px); --t-bloco:clamp(14px,1.7vw,17px); --t-meta:13px;
   --g-96:clamp(56px,8vw,96px); --g-72:clamp(40px,6vw,72px); --g-156:clamp(72px,11vw,156px);
@@ -43,7 +43,7 @@ svg{display:block;fill:var(--amarelo)}
 hr{width:100%;border:0;height:2px;margin:0;background:linear-gradient(90deg,transparent,var(--amarelo-suave) 12%,var(--amarelo-suave) 88%,transparent)}
 .h1{margin:0;font-weight:400;font-size:var(--t-h1);line-height:1.05;letter-spacing:.04em;color:var(--amarelo);text-wrap:balance}
 .resumo{display:flex;flex-direction:column;align-items:center;gap:var(--g-72);width:100%}
-.texto{display:flex;flex-direction:column;gap:1.3em;font-family:var(--font-body);font-weight:var(--typography-body-weight);font-size:var(--t-body);line-height:1.6;max-width:60ch}
+.texto{display:flex;flex-direction:column;gap:1.3em;font-family:var(--font-body);font-weight:var(--typography-body-weight);font-size:var(--typography-body-size);line-height:1.6;color:var(--amarelo-texto);max-width:60ch}
 .texto p{margin:0}
 .texto strong{font-weight:400;color:var(--amarelo)}
 .texto .valores{display:flex;flex-direction:column;gap:1.1em}
