@@ -1,4 +1,5 @@
 :root{
+  --font-body:"EB Garamond",serif; --typography-body-weight:400;
   --logo-w:clamp(260px,40vw,500px);
   --forest:#2C5530; --forest-deep:#1E3D22; --navy:#1F3264; --cream:#EFE6CF; --cream-2:#E2D5B4;
   --red:#E8343F; --sky:#7CC8EA; --orange:#F5A23B; --leaf:#8DC63F; --tan:#C9A87A; --sun:#FFD23F;
@@ -14,7 +15,7 @@
 :root[data-theme="dark"]{ --panel:#1B2747; --panel-ink:#EFE6CF; --panel-soft:#2A3961; --panel-line:rgba(239,230,207,.2); --ok:#8DC63F; --bad:#FF7A82; }
 html{ height:100%; scroll-padding-top:env(safe-area-inset-top,0px); }
 html,body{ margin:0; }
-body{ height:100%; background:#2E5B2E; color:var(--panel-ink); font-family:"Fira Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; overflow:hidden; -webkit-tap-highlight-color:transparent; }
+body{ font-weight:var(--typography-body-weight); height:100%; background:#2E5B2E; color:var(--panel-ink); font-family:"Fira Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; overflow:hidden; -webkit-tap-highlight-color:transparent; }
 *,*::before,*::after{ box-sizing:border-box; }
 canvas#scene{ position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; }
 button{ font:inherit; color:inherit; cursor:pointer; }
