@@ -29,6 +29,12 @@
 .art-project-fact dd{margin:0;font-family:var(--font-body);font-size:var(--typography-body-size);line-height:1.45;color:var(--color-body)}
 .art-project-story .case-col2 dl{display:flex;flex-direction:column;gap:var(--spacing-8);margin:0}
 @media(min-width:1280px){.art-project-story{gap:var(--spacing-18)}}
+.art-project-links{display:flex;flex-direction:column;gap:var(--spacing-3);margin-top:var(--spacing-10)}
+.art-project-links__title{margin:0 0 var(--spacing-3)}
+.art-project-links__entry{display:flex;flex-direction:column;gap:var(--spacing-1)}
+.art-project-links__label{margin:0;font-family:var(--font-body);font-size:var(--typography-body-size);font-weight:var(--typography-body-weight);color:var(--color-body)}
+.art-project-links__list{list-style:disc;margin:0;padding-left:30px}
+.art-project-links__list a{font-family:var(--font-body);font-weight:400;font-size:18px;color:var(--color-link);text-decoration:underline;overflow-wrap:anywhere}
 </style></head>
 <body data-brand="arte"><script>try{const t=localStorage.getItem('rl-theme');if(t==='dark'||t==='light')document.body.dataset.theme=t}catch(e){}</script>
 <header class="navbar"></header>
@@ -69,6 +75,13 @@
         <div class="art-project-fact"><dt>Works</dt><dd>11 works and groups comprising 76 pieces, plus 300 handwritten letters</dd></div>
         <div class="art-project-fact"><dt>Media</dt><dd>Painting, drawing, installation, fabric, and audience participation</dd></div>
       </dl>
+      <section class="art-project-links" aria-labelledby="voa-links-title">
+        <h3 class="case-h2 art-project-links__title" id="voa-links-title">Useful links</h3>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Exhibition Design Project:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/1CDP1tJ9OJO1XfmVFPQItjMRKgABdRXqV/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">view exhibition design project ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Artwork Presentation:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/11ZRYgNElvUzUKGZSNxJR9CAajIvFe7iE/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">view artwork presentation ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">Descriptive Report:</p><ul class="art-project-links__list"><li><a href="https://drive.google.com/file/d/1u5VVIOyrKSgDiATDg1DYGf86sDDXGi16/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">view descriptive report ↗</a></li></ul></div>
+        <div class="art-project-links__entry"><p class="art-project-links__label">V.O.A. Manifesto:</p><ul class="art-project-links__list"><li><a href="/arte/voa/">read the V.O.A. manifesto ↗</a></li></ul></div>
+      </section>
     </aside>
   </div>
 </section>
