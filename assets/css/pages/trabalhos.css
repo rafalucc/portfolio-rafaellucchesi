@@ -26,3 +26,6 @@
 .trabalhos-main .card:focus-within .card__brand-symbol{background:#fff}
 .trabalhos-main .card:focus-within .card__media--hotmart .card__brand-symbol{background:#000}
 @media(prefers-reduced-motion:reduce){.trabalhos-main .card__media--brand,.trabalhos-main .card__brand-symbol{transition:none}}
+
+/* Increase only the overline-to-title spacing by 3% of the existing spacing token. */
+.trabalhos-main .card__meta + .card__title{margin-top:calc(var(--spacing-3) * 0.03)}
