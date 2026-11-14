@@ -32,3 +32,6 @@
 
 /* Hotmart case collection: two equal columns across the page container. */
 @media(min-width:1280px){.trabalhos-main--two-columns .trabalhos-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Mercantil: logo 3% larger, without changing other cards or cover dimensions. */
+.trabalhos-main .card__media--mercantil .card__brand-symbol{width:clamp(65.92px,28.84%,144.2px)}
