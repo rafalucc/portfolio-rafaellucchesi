@@ -16,3 +16,6 @@
 @media(min-width:1280px){.trabalhos-main{gap:var(--spacing-18);padding:var(--spacing-24) var(--spacing-39)}.trabalhos-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--spacing-18)}}
 
 .card__media--grupoconor .card__brand-symbol{background:#fff}
+
+/* Brand-logo media: 10% shorter than the standard card media */
+.trabalhos-main .card__media--brand{aspect-ratio:488/317.7}
