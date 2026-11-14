@@ -18,7 +18,7 @@
 .card__media--grupoconor .card__brand-symbol{background:#fff}
 
 /* Brand-logo media: 15% shorter than the standard card media (10% + 5% of the previous height) */
-.trabalhos-main .card__media--brand{aspect-ratio:488/286.72425}
+.trabalhos-main .card__media--brand{aspect-ratio:488/272.3880375}
 
 /* Right-align the overline in every work card, including dynamic cards */
 .trabalhos-main .card__meta{justify-content:flex-end}
