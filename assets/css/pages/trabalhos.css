@@ -17,5 +17,5 @@
 
 .card__media--grupoconor .card__brand-symbol{background:#fff}
 
-/* Brand-logo media: 10% shorter than the standard card media */
-.trabalhos-main .card__media--brand{aspect-ratio:488/317.7}
+/* Brand-logo media: 15% shorter than the standard card media (10% + 5% of the previous height) */
+.trabalhos-main .card__media--brand{aspect-ratio:488/301.815}
