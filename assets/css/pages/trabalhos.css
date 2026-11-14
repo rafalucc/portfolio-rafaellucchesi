@@ -2,7 +2,7 @@
 .trabalhos-main{display:flex;flex-direction:column;align-items:center;width:100%;max-width:1920px;margin:0 auto;overflow:clip;gap:var(--spacing-12);padding:var(--spacing-12) var(--spacing-6)}
 .trabalhos-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--spacing-12);width:100%}
 .trabalhos-cards .card{min-width:0}
-.card__media--brand{display:flex;align-items:center;justify-content:center;background:#313131;transition:background-color .25s ease}
+.card__media--brand{display:flex;align-items:center;justify-content:center;background:var(--color-body-lighter);transition:background-color .25s ease}
  .card__brand-symbol{display:block;width:clamp(64px,28%,140px);aspect-ratio:1;background:#e5e5e5;transition:background-color .25s ease;-webkit-mask:var(--brand-cover-logo) center/contain no-repeat;mask:var(--brand-cover-logo) center/contain no-repeat}
 .card__media--hotmart{--brand-cover-color:#FF4000;--brand-cover-logo:url("/assets/logos/logo-hotmart.svg")}
 .card__media--devopness{--brand-cover-color:#786DFC;--brand-cover-logo:url("/assets/logos/logo-devopness.svg")}
