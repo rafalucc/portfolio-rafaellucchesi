@@ -29,3 +29,6 @@
 
 /* Increase only the overline-to-title spacing by 3% of the existing spacing token. */
 .trabalhos-main .card__meta + .card__title{margin-top:calc(var(--spacing-3) * 0.03)}
+
+/* Hotmart case collection: two equal columns across the page container. */
+@media(min-width:1280px){.trabalhos-main--two-columns .trabalhos-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
