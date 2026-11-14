@@ -7,10 +7,12 @@
 .card__media--hotmart{--brand-cover-color:#FF4000;--brand-cover-logo:url("/assets/logos/logo-hotmart.svg")}
 .card__media--devopness{--brand-cover-color:#786DFC;--brand-cover-logo:url("/assets/logos/logo-devopness.svg")}
 .card__media--umdeia{--brand-cover-color:#F58C59;--brand-cover-logo:url("/assets/logos/logo-umdeia.svg")}
-.card__media--grupoconor{--brand-cover-color:#40C6EE;--brand-cover-logo:url("/assets/logos/logo-grupoconor.svg")}
+.card__media--grupoconor{--brand-cover-color:#000000;--brand-cover-logo:url("/assets/logos/logo-grupoconor.svg")}
 .card__media--mercantil{--brand-cover-color:#006BB1;--brand-cover-logo:url("/assets/logos/logo-mercantil.svg")}
 .card__media--getrak{--brand-cover-color:#9AB7B9;--brand-cover-logo:url("/assets/logos/logo-getrak.svg")}
 /* White symbols on darker brand covers */
 .card__media--devopness .card__brand-symbol,.card__media--umdeia .card__brand-symbol,.card__media--mercantil .card__brand-symbol,.card__media--getrak .card__brand-symbol{background:#fff}
 @media(min-width:720px){.trabalhos-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1280px){.trabalhos-main{gap:var(--spacing-18);padding:var(--spacing-24) var(--spacing-39)}.trabalhos-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--spacing-18)}}
+
+.card__media--grupoconor .card__brand-symbol{background:#fff}
