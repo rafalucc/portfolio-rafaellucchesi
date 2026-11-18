@@ -24,4 +24,4 @@ O site é publicado automaticamente via GitHub Pages a cada push na branch `main
 
 ## Créditos
 
-Design original: Figma — Rafael Lucchesi
+Rafael Lucchesi
